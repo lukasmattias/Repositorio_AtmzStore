@@ -9,8 +9,8 @@ Ideias de projeto podem vir de:
 ## Integrantes do grupo 
  * Lucas Matias da Silva - Lucasmatiassilva2022@gmail.com
  * Jeane Vitória Félix da Silva - jeanevitoria994@gmail.com
- * 
- *  
+ * Camila de Almeida Silva  - camila.almeidasilva@ufrpe.br 
+ *  Lucas Xavier de Almeida- lucasxavierdealmeida@gmail.com
 
 ## Descrição geral do projeto 
 
