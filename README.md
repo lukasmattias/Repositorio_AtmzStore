@@ -14,14 +14,15 @@ Ideias de projeto podem vir de:
 
 ## Descrição geral do projeto 
 
-<<1 - Finalidade>>
+<h3>1-Finalidade</h3>
+
 A principal funcionalidade do sistema AtmzStore é permitir que os usuários comprem artigos eletrônicos por meio de uma plataforma de vendas.
 
-<<2 - Usuários>> 
+<h3>2-Usuários</h3> 
 Compradores comuns que desejam buscar, visualizar e comprar artigos eletrônicos disponíveis na loja.
 Administradores responsáveis por gerenciar o catálogo de produtos, clientes e suas informações.
 
-<<2.1 - Tipos de Usuário>>
+<h3>2.1-Tipos de Usuário</h3> 
 
 --> Compradores comuns:
 
@@ -34,7 +35,7 @@ Administradores responsáveis por gerenciar o catálogo de produtos, clientes e 
 - Gerenciar catálogo de produtos (adicionar, remover e editar produtos).
 - Gerenciar clientes (adicionar e remover clientes, atualizar suas informações).
 
-<<3- Serviços>>
+<h3>3-Serviços</h3>
 
 - Buscar produtos: Os usuários devem poder pesquisar e visualizar informações sobre os produtos disponíveis na loja.
 - Colocar produtos no carrinho: Os clientes devem ser capazes de adicionar produtos de interesse ao carrinho de compras.
