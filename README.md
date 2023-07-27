@@ -28,7 +28,7 @@ Administradores responsáveis por gerenciar o catálogo de produtos, clientes e 
 - Buscar produtos.
 - Colocar produtos no carrinho.
 - Comprar produtos.
-  
+
 --> Administradores:
 
 - Gerenciar catálogo de produtos (adicionar, remover e editar produtos).
