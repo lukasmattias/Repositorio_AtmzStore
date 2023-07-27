@@ -3,22 +3,37 @@ AtmzStore - Produtos de A a Z.
 
 Ideias de projeto podem vir de: 
  * (https://www.amazon.com.br/)
+ * (https://www.magazineluiza.com.br/)
 
 
 ## Integrantes do grupo 
-[Liste o nome completo de todos os integrantes do grupo com seus respectivos e-mails]
- * Fulano da Silva Junior - fulano@abc.com
- * Beltrano de Amorim Cardoso - beltrano@abc.com
- * Maria das Graças Nascimento - maria@abc.com
- * João da Fonseca - joao@abc.com
+ * Lucas Matias da Silva - Lucasmatiassilva2022@gmail.com
+ * 
+ * 
+ *  
 
 ## Descrição geral do projeto 
-Nesta descrição, apresente um texto resumido com a(s) principal(is) funcionalidade(s) do sistema. 
-É muito importante que você consiga responder em uma única frase: qual a principal funcionalidade do seu sistema? 
-A partir disso, você deve detalhar as funcionalidades do sistema tentando responder às perguntas:
- 1. Quem vai usar o programa?
- 2. Que serviços são “necessários” (leia-se: importantes para os clientes e usuários)?
- 3. Quais serviços cada usuário pode executar?
+<<1 - Finaidade>>
+A principal funcionalidade do sistema AtmzStore é permitir que os usuários comprem artigos eletrônicos por meio de uma plataforma de vendas.
+<<2 - Usuários>> 
+Compradores comuns que desejam buscar, visualizar e comprar artigos eletrônicos disponíveis na loja.
+Administradores responsáveis por gerenciar o catálogo de produtos, clientes e suas informações.
+
+<<2.1 - Tipos de Usuário>>
+--> Compradores comuns:
+- Buscar produtos.
+- Colocar produtos no carrinho.
+- Comprar produtos.
+--> Administradores:
+- Gerenciar catálogo de produtos (adicionar, remover e editar produtos).
+- Gerenciar clientes (adicionar e remover clientes, atualizar suas informações).
+
+<<3- Serviços>>
+- Buscar produtos: Os usuários devem poder pesquisar e visualizar informações sobre os produtos disponíveis na loja.
+- Colocar produtos no carrinho: Os clientes devem ser capazes de adicionar produtos de interesse ao carrinho de compras.
+- Comprar produtos: Os clientes devem ter a opção de finalizar a compra dos produtos selecionados.
+- Gerenciar catálogo de produtos: Os administradores precisam poder adicionar, remover e editar informações sobre os produtos disponíveis para venda.
+- Gerenciar clientes: Os administradores devem ter a capacidade de adicionar e remover clientes, bem como atualizar suas informações.
 
 ## Requisitos do projeto
 Liste de forma numerada e com identificadores únicos os seus requisitos de projeto. 
