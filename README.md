@@ -24,14 +24,18 @@ Administradores responsáveis por gerenciar o catálogo de produtos, clientes e 
 <<2.1 - Tipos de Usuário>>
 
 --> Compradores comuns:
+
 - Buscar produtos.
 - Colocar produtos no carrinho.
 - Comprar produtos.
+  
 --> Administradores:
+
 - Gerenciar catálogo de produtos (adicionar, remover e editar produtos).
 - Gerenciar clientes (adicionar e remover clientes, atualizar suas informações).
 
 <<3- Serviços>>
+
 - Buscar produtos: Os usuários devem poder pesquisar e visualizar informações sobre os produtos disponíveis na loja.
 - Colocar produtos no carrinho: Os clientes devem ser capazes de adicionar produtos de interesse ao carrinho de compras.
 - Comprar produtos: Os clientes devem ter a opção de finalizar a compra dos produtos selecionados.
