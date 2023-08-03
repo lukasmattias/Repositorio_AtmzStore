@@ -60,3 +60,7 @@ Administradores responsáveis por gerenciar o catálogo de produtos, clientes e 
 * **REQ13** - A GUI deve apresentar uma tela de busca de produtos, na qual o cliente poderá procurar os produtos da loja por nome, ID ou categoria.
 * **REQ14** - O Repositório de Clientes não deve permitir o cadastro de clientes com o mesmo email.
 * **REQ15** - O controlador não deve permitir outras formas de pagamento além de boleto e cartão de credito.
+
+
+<div style="display: inline-block">
+  <img align="center" height="30" width="40" src="https://drive.google.com/file/d/1S3KBHhZy_M3l_8QCXsiiWwLB9AmCdmls/view?usp=drivesdk">
