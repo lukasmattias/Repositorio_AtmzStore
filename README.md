@@ -58,3 +58,4 @@ Administradores responsáveis por gerenciar o catálogo de produtos, clientes e 
 * **REQ11** - A GUI deve exibir, para o cliente, os ítens que foram adicionados ao seu carrinho de compras, bem como o preço total de todos os produtos presentes.
 * **REQ12** - A GUI deve apresentar uma tela de finalização de compra, na qual o cliente deve informar o tipo de pagamento, confirmar os seus dados pessoais e a compra do produto.
 * **REQ13** - A GUI deve apresentar uma tela de busca de produtos, na qual o cliente poderá procurar os produtos da loja por nome, ID ou categoria.
+* **REQ14** - O Repositório de Clientes não deve permitir o cadastro de clientes com o mesmo email.
