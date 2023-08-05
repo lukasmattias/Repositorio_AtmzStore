@@ -51,7 +51,5 @@ public class ProdutoController {
         repositorioProdutos.removerProduto(produto);
     }
     
-    // Outros métodos específicos do ProdutoController
-    // ...
 }
 

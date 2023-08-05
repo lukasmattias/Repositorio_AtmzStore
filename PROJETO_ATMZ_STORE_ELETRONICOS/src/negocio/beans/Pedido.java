@@ -10,8 +10,10 @@ public class Pedido {
     private double valorTotal;
     private Cliente cliente;
     private List<ItemPedido> itens;
+    private Pagamento pagamento;
 
-    public Pedido(Cliente cliente, List<ItemPedido> itens) {
+    public Pedido(int id, Cliente cliente, List<ItemPedido> itens) {
+    	this.id = id;
         this.cliente = cliente;
         this.itens = itens;
         this.data = new Date(); // Data atual
@@ -19,6 +21,14 @@ public class Pedido {
         this.valorTotal = calcularValorTotal();
     }
 
+    public Pagamento getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
+    
     public void cancelarPedido() {
         this.status = false;
     }

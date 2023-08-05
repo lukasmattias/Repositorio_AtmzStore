@@ -42,6 +42,4 @@ public class AdministradorController {
         repositorioAdministrador.removerAdministrador(administrador);
     }
     
-    // Outros métodos específicos do AdministradorController
-    // ...
 }

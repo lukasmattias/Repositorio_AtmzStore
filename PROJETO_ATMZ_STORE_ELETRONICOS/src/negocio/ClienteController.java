@@ -51,7 +51,5 @@ public class ClienteController {
         repositorioClientes.removerCliente(cliente);
     }
     
-    // Outros métodos específicos do ClienteController
-    // ...
 }
 

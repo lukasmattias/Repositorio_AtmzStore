@@ -51,6 +51,4 @@ public class CategoriaController {
         repositorioCategorias.removerCategoria(categoria);
     }
     
-    // Outros métodos específicos do CategoriaController
-    // ...
 }
