@@ -9,9 +9,6 @@ public class CarrinhoDeCompras {
     public CarrinhoDeCompras() {
         this.itens = new ArrayList<>();
     }
-    /* definir se o carrinho de compras deve ter um controlador separaado.
-     * Pode ser desnecessário
-	 */
     
     public void adicionarItem(Produto produto, int quantidade) {
     	for (ItemDoCarrinho item: itens) {
