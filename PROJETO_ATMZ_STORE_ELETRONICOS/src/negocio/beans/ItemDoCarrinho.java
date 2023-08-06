@@ -24,4 +24,19 @@ public class ItemDoCarrinho {
     public double getSubtotal() {
         return getPrecoUnitario() * quantidade;
     }
+
+	/**
+	 * @param produto the produto to set
+	 */
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	/**
+	 * @param quantidade the quantidade to set
+	 */
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+    
 }

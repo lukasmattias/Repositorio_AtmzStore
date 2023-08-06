@@ -17,15 +17,15 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public void atualizarPreco(double novoPreco) {
-        this.preco = novoPreco;
-    }
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 
-    public void atualizarEstoque(int quantidade) {
-        this.estoque += quantidade;
-    }
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
+	}
 
-    public int getId() {
+	public int getId() {
         return id;
     }
 
@@ -47,5 +47,17 @@ public class Produto {
 
     public Categoria getCategoria() {
         return categoria;
+    }
+    
+    @Override
+    public String toString() {
+        return "Produto{" +
+               "id=" + id +
+               ", nome='" + nome + '\'' +
+               ", descricao='" + descricao + '\'' +
+               ", preco=" + preco +
+               ", estoque=" + estoque +
+               ", categoria=" + categoria +
+               '}';
     }
 }

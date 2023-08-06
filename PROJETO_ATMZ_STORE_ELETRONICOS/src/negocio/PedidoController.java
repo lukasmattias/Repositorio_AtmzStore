@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dados.IRepositorioPedidos;
@@ -12,9 +13,11 @@ import negocio.beans.ItemDoCarrinho;
 import negocio.beans.ItemPedido;
 import negocio.beans.Pagamento;
 import negocio.beans.Pedido;
+import negocio.beans.Status;
 
 public class PedidoController {
     private static PedidoController instancia;
+    private ServicoAtualizacaoStatus servicoAtualizacao;
     private IRepositorioPedidos repositorioPedidos;
 
     private PedidoController() {
@@ -27,35 +30,61 @@ public class PedidoController {
         }
         return instancia;
     }
-
-    public void criarPedido(Cliente cliente, List<ItemPedido> itens, Pagamento pagamento) {
-        if (cliente == null || itens == null || pagamento == null) {
+    //falta definir onde será de fato a lógica do controle de estoque
+    // provavelmente reformular a lógica de criação do pedido
+    
+    public void criarPedido(Cliente cliente) {
+    	// verificando se o cliente é nulo ou se o seu carrinho está vazio
+    	
+        if (cliente == null || cliente.getCarrinho().listarProdutos().isEmpty()) {
             throw new PedidoInvalidoException();
-        }
-
-        Pedido novoPedido = new Pedido(123 /* ID do pedido??? */, cliente, itens);
-        novoPedido.setPagamento(pagamento);
-
+        } 
+    	List<ItemPedido> itens = new ArrayList<>();
+    	
+    	// Transformando os ItemDoCarrinho em ItemPedido
+    	
+    	for (ItemDoCarrinho ic : cliente.getCarrinho().listarItens()) {
+    		ItemPedido ip = new ItemPedido(ic.getProduto(), ic.getQuantidade());
+    		itens.add(ip);
+    	}
+    	// criando um novo pedido com base nos ítens transferidos
+    	
+        Pedido novoPedido = new Pedido(cliente, itens);
         repositorioPedidos.adicionarPedido(novoPedido);
+        
+        //limpando o carrinho do cliente, visto que foi transformado em pedido
+        cliente.getCarrinho().limparCarrinho();
+    }
+ 
+    // Calcular o total de um pedido com base nos sub-totais dos ItemPedido
+    public double calcularTotal(Pedido pedido) {
+        double total = 0;
+        for (ItemPedido item : pedido.getItens()) {
+            total += item.getSubtotal();
+        }
+        return total;
+    }
+    
+    // Listar todos os pedidos de um cliente
+    public List<Pedido> listarPedidosPorCliente(Cliente cliente) {
+        return repositorioPedidos.listarPedidosPorCliente(cliente);
+    }
+    
+    public List<Pedido> listarPedidos() {
+        return repositorioPedidos.listarPedidos();
+    }
+    
+    private void cancelarPedido(Pedido pedido) {
+    	if (pedido.getPagamento().getStatus() == Status.PENDENTE) {
+    		servicoAtualizacao.atualizarStatus(pedido, Status.CANCELADO);
+      	}
     }
 
-
-
-    public void finalizarPedido(int idPedido) {
-        Pedido pedido = repositorioPedidos.buscarPedidoPorId(idPedido);
-        if (pedido == null) {
-            throw new PedidoNaoEncontradoException();
-        }
-
-        Pagamento pagamento = pedido.getPagamento();
-        if (pagamento == null) {
-            throw new PagamentoNaoDefinidoException();
-        }
-
-        pagamento.realizarPagamento();
-        pedido.setStatus(StatusPedido.FINALIZADO);
-
-
-        repositorioPedidos.atualizarPedido(pedido);
+    private void finalizarPedido(Pedido pedido) {
+    	if (pedido.getPagamento().getStatus() == Status.FINALIZADO) {
+    		servicoAtualizacao.atualizarStatus(pedido, Status.FINALIZADO);
+    	}
     }
+    
 }
+

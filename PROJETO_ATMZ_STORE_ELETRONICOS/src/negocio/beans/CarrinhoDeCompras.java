@@ -9,8 +9,17 @@ public class CarrinhoDeCompras {
     public CarrinhoDeCompras() {
         this.itens = new ArrayList<>();
     }
-
+    /* definir se o carrinho de compras deve ter um controlador separaado.
+     * Pode ser desnecessário
+	 */
+    
     public void adicionarItem(Produto produto, int quantidade) {
+    	for (ItemDoCarrinho item: itens) {
+    		if (item.getProduto() == produto) {
+    			item.setQuantidade(item.getQuantidade()+ quantidade);
+    			return;
+    		}
+    	}
         ItemDoCarrinho item = new ItemDoCarrinho(produto, quantidade);
         itens.add(item);
     }
@@ -26,6 +35,10 @@ public class CarrinhoDeCompras {
         }
         return produtosNoCarrinho;
     }
+    
+    public List<ItemDoCarrinho> listarItens() {
+        return this.listarItens();
+    }
 
     public double calcularTotal() {
         double total = 0;
@@ -34,18 +47,7 @@ public class CarrinhoDeCompras {
         }
         return total;
     }
-
-    public Pedido finalizarCompra(Cliente cliente) {
-        List<ItemPedido> itensPedido = new ArrayList<>();
-        for (ItemDoCarrinho item : itens) {
-            itensPedido.add(new ItemPedido(item.getProduto(), item.getQuantidade()));
-        }
-        Pedido novoPedido = new Pedido(cliente, itensPedido);
-        cliente.adicionarPedido(novoPedido);
-        itens.clear();
-        return novoPedido;
-    }
-
+ 
     public void limparCarrinho() {
         itens.clear();
     }

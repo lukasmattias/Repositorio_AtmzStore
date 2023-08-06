@@ -5,7 +5,10 @@ import java.util.List;
 import dados.IRepositorioProdutos;
 import dados.RepositorioProdutos;
 import exception.ProdutoNuloException;
+import negocio.beans.ItemPedido;
+import negocio.beans.Pedido;
 import negocio.beans.Produto;
+import negocio.beans.Status;
 
 public class ProdutoController {
     private static ProdutoController instancia;
@@ -50,6 +53,24 @@ public class ProdutoController {
         }
         repositorioProdutos.removerProduto(produto);
     }
+    /* definir se o produto vai ter seu estoque dminuido quando é adicionado a um 
+     * um carrinho ou apenas quando tem seu pedido gerado.
+	 */
+    public void diminuirEstoque (Pedido pedido) {
+   
+}
+    
+    public void aumentarEstoque (Produto produto, int quantidade) {
+    	
+    }
+    
+    public void atualizarPreco(Produto produto, double novoPreco) {
+        if (produto == null) {
+            throw new ProdutoNuloException();
+        }
+        repositorioProdutos.atualizarPrecoProduto(produto, novoPreco);
+    }
+
     
 }
 

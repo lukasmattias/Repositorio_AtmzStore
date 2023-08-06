@@ -13,34 +13,34 @@ public class Cliente extends Usuario {
         this.carrinho = new CarrinhoDeCompras();
     }
 
-    public List<Pedido> listarPedidos() {
-        return pedidos;
-    }
+	/**
+	 * @return the pedidos
+	 */
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
 
-    public void adicionarNoCarrinho(Produto produto, int quantidade) {
-        carrinho.adicionarItem(produto, quantidade);
-    }
+	/**
+	 * @param pedidos the pedidos to set
+	 */
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
-    public void removerDoCarrinho(Produto produto) {
-        carrinho.removerItem(produto);
-    }
+	/**
+	 * @return the carrinho
+	 */
+	public CarrinhoDeCompras getCarrinho() {
+		return carrinho;
+	}
 
-    public void esvaziarCarrinho() {
-        carrinho.limparCarrinho();
-    }
+	/**
+	 * @param carrinho the carrinho to set
+	 */
+	public void setCarrinho(CarrinhoDeCompras carrinho) {
+		this.carrinho = carrinho;
+	}
 
-    public Pedido comprarProdutos() {
-        Pedido novoPedido = carrinho.finalizarCompra(this);
-        pedidos.add(novoPedido);
-        return novoPedido;
-    }
-
-    public List<Produto> visualizarCarrinho() {
-        return carrinho.listarProdutos();
-    }
-
-    public void adicionarPedido(Pedido pedido) {
-        pedidos.add(pedido);
-    }
+    
 }
 

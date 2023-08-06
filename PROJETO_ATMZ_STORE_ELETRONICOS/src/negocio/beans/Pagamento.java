@@ -3,29 +3,23 @@ package negocio.beans;
 public abstract class Pagamento {
     private int id;
     private double valor;
-    protected String status; // Alteração aqui
+    protected Status status;
 
     public Pagamento(int id, double valor) {
         this.id = id;
         this.valor = valor;
-        this.status = "Pendente"; // Status inicial é pendente
+        this.status = Status.PENDENTE; // Status inicial pendente
     }
 
-    public void realizarPagamento() {
-        this.status = "Pago";
-    }
+	public Status getStatus() {
+		return status;
+	}
 
-    public void cancelarPagamento() {
-        this.status = "Cancelado";
-    }
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
-    public String verificarStatus() {
-        return status;
-    }
-
-    public abstract String obterDetalhesPagamento();
-
-    public int getId() {
+	public int getId() {
         return id;
     }
 

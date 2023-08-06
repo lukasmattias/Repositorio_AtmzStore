@@ -2,6 +2,7 @@ package dados;
 
 import java.util.List;
 
+import negocio.beans.Cliente;
 import negocio.beans.Pedido;
 
 public interface IRepositorioPedidos {
@@ -15,5 +16,9 @@ public interface IRepositorioPedidos {
 	void atualizarPedido(Pedido pedido);
 
 	void removerPedido(Pedido pedido);
+
+	List<Pedido> listarPedidosPorCliente(Cliente cliente);
+
+	String obterDetalhesPedido(Pedido pedido);
 
 }

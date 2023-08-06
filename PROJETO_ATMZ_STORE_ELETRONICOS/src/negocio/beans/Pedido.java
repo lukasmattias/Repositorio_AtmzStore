@@ -1,24 +1,25 @@
 package negocio.beans;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public class Pedido {
     private int id;
-    private Date data;
-    private boolean status;
+    private LocalDate data;
+    private Status status;
     private double valorTotal;
     private Cliente cliente;
     private List<ItemPedido> itens;
     private Pagamento pagamento;
 
-    public Pedido(int id, Cliente cliente, List<ItemPedido> itens) {
-    	this.id = id;
+    public Pedido(Cliente cliente, List<ItemPedido> itens) {
+    	this.id = -1;
         this.cliente = cliente;
         this.itens = itens;
-        this.data = new Date(); // Data atual
-        this.status = true; // Pedido inicialmente ativo
-        this.valorTotal = calcularValorTotal();
+        this.data = LocalDate.now(); // Data atual
+        this.status = Status.PENDENTE; // Pedido inicialmente ativo
+        this.pagamento = null;
     }
 
     public Pagamento getPagamento() {
@@ -29,35 +30,19 @@ public class Pedido {
         this.pagamento = pagamento;
     }
     
-    public void cancelarPedido() {
-        this.status = false;
-    }
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
-    public List<ItemPedido> listarProdutos() {
-        return itens;
-    }
-
-    public double calcularValorTotal() {
-        double total = 0;
-        for (ItemPedido item : itens) {
-            total += item.getSubtotal();
-        }
-        return total;
-    }
-
-    public void finalizarPedido() {
-        // Lógica para finalizar o pedido
-    }
-
-    public int getId() {
+	public int getId() {
         return id;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public boolean getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -68,4 +53,22 @@ public class Pedido {
     public Cliente getCliente() {
         return cliente;
     }
+
+	public List<ItemPedido> getItens() {
+		return itens;
+	}
+	
+	   @Override
+	    public String toString() {
+	        return "Pedido{" +
+	               "id=" + id +
+	               ", data=" + data +
+	               ", status=" + status +
+	               ", valorTotal=" + valorTotal +
+	               ", cliente=" + cliente +
+	               ", itens=" + itens +
+	               ", pagamento=" + pagamento.toString() +
+	               '}';
+	    }
+    
 }

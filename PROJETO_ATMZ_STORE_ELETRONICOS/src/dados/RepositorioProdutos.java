@@ -60,6 +60,11 @@ public class RepositorioProdutos implements IRepositorioProdutos {
         }
     }
 
+    @Override
+	public void atualizarPrecoProduto(Produto produto, double novoPreco) {
+        produto.setPreco(novoPreco);
+    }
+    
     /* (non-Javadoc)
 	 * @see dados.IRepositorioProdutos#removerProduto(negocio.beans.Produto)
 	 */

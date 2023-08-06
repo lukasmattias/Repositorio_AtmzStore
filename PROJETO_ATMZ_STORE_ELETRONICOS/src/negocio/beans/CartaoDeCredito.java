@@ -19,14 +19,8 @@ public class CartaoDeCredito extends Pagamento {
     }
 
     @Override
-    public void realizarPagamento() {
-        // Lógica para realizar o pagamento com cartão de crédito
-        this.status = "Pago"; // Atualizando o status diretamente
-    }
-
-    @Override
-    public String obterDetalhesPagamento() {
-        return "Cartão de Crédito - Parcelas: " + parcelas + " - Número: " + numeroCartao;
+    public String toString() {
+        return "Cartao de Credito - Parcelas: " + parcelas + " - Nï¿½mero: " + numeroCartao;
     }
 
     public int getParcelas() {

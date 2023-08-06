@@ -16,4 +16,6 @@ public interface IRepositorioProdutos {
 
 	void removerProduto(Produto produto);
 
+	void atualizarPrecoProduto(Produto produto, double novoPreco);
+
 }

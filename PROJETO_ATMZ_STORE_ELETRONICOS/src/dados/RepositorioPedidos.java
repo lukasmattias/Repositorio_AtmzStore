@@ -1,8 +1,9 @@
-package dados;
+ package dados;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import negocio.beans.Cliente;
 import negocio.beans.Pedido;
 
 public class RepositorioPedidos implements IRepositorioPedidos {
@@ -24,6 +25,11 @@ public class RepositorioPedidos implements IRepositorioPedidos {
     public void adicionarPedido(Pedido pedido) {
         pedidos.add(pedido);
     }
+    
+    @Override
+    public String obterDetalhesPedido(Pedido pedido) {
+        return pedido.toString();
+    }
 
     @Override
     public Pedido buscarPedidoPorId(int id) {
@@ -39,10 +45,15 @@ public class RepositorioPedidos implements IRepositorioPedidos {
     public List<Pedido> listarPedidos() {
         return pedidos;
     }
+    
+    @Override
+    public List<Pedido> listarPedidosPorCliente(Cliente cliente) {
+        return cliente.getPedidos();
+    }
 
     @Override
     public void atualizarPedido(Pedido pedido) {
-        // Aqui você pode implementar a lógica para atualizar um pedido no repositório
+        // Aqui vocï¿½ pode implementar a lï¿½gica para atualizar um pedido no repositï¿½rio
     }
 
     @Override
@@ -50,5 +61,5 @@ public class RepositorioPedidos implements IRepositorioPedidos {
         pedidos.remove(pedido);
     }
 
-    // ... outros métodos do repositório ...
+    // ... outros mï¿½todos do repositï¿½rio ...
 }
