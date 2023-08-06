@@ -1,5 +1,7 @@
 package negocio.beans;
 
+import java.util.Objects;
+
 public class Produto {
     private int id;
     private String nome;
@@ -60,4 +62,25 @@ public class Produto {
                ", categoria=" + categoria +
                '}';
     }
+
+     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Produto produto = (Produto) obj;
+
+        return id == produto.id &&
+                Double.compare(produto.preco, preco) == 0 &&
+                estoque == produto.estoque &&
+                Objects.equals(nome, produto.nome) &&
+                Objects.equals(descricao, produto.descricao) &&
+                Objects.equals(categoria, produto.categoria);
+    }
+
 }

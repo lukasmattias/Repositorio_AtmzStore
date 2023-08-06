@@ -16,25 +16,8 @@ public class Categoria {
         this.itens = new ArrayList<>();
     }
 
-    public void adicionarProduto(Produto produto) {
-        itens.add(produto);
-    }
-
-    public void removerProduto(Produto produto) {
-        itens.remove(produto);
-    }
-
-    public List<Produto> listarProdutos() {
-        return itens;
-    }
-
-    public Produto procurarProduto(String nomeProduto) {
-        for (Produto produto : itens) {
-            if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
-                return produto;
-            }
-        }
-        return null;
+    public List<Produto> getItens(){
+        return this.itens;
     }
 
     public int getId() {

@@ -6,6 +6,7 @@ import dados.IRepositorioCategorias;
 import dados.RepositorioCategorias;
 import exception.CategoriaNulaException;
 import negocio.beans.Categoria;
+import negocio.beans.Produto;
 
 public class CategoriaController {
     private static CategoriaController instancia;
@@ -49,6 +50,31 @@ public class CategoriaController {
             throw new CategoriaNulaException();
         }
         repositorioCategorias.removerCategoria(categoria);
+    }
+
+    public void adicionarProdutoACategoria(Produto produto, Categoria categoria) {
+        
+    }
+
+    public void removerProdutoDaCategoria(Categoria categoria, Produto produto) {
+        if (categoria != null && produto != null){
+                if (repositorioCategorias.verificarExistenciaDeProdutoNaCategoria(produto, categoria)){
+                repositorioCategorias.removerProdutoDeUmaCategoria(categoria, produto);                       
+                }
+        }
+    }
+
+    public List<Produto> listarProdutosDaCategoria(Categoria categoria) {
+        return repositorioCategorias.listarProdutosDeUmaCategoria(categoria);
+    }
+
+    public Produto procurarProdutoNaCategoria(String nomeProduto, Categoria categoria) {
+        for (Produto produto : categoria.getItens()) {
+            if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
+                return produto;
+            }
+        }
+        return null;
     }
     
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import exception.CategoriaNaoEncontradaException;
 import exception.CategoriaNulaException;
 import negocio.beans.Categoria;
+import negocio.beans.Produto;
 
 public class RepositorioCategorias implements IRepositorioCategorias {
     private static IRepositorioCategorias instancia;
@@ -76,5 +77,53 @@ public class RepositorioCategorias implements IRepositorioCategorias {
         if (!categorias.remove(categoria)) {
             throw new CategoriaNaoEncontradaException(categoria.getId());
         }
+    }
+    
+    @Override
+    public void adicionarProdutoACategoria(Produto produto, Categoria categoria) {
+        boolean existe = verificarExistenciaDeProdutoNaCategoria(produto, categoria);
+        if (!existe){
+            categoria.getItens().add(produto);
+        }
+    }
+
+    @Override
+    public void removerProdutoDeUmaCategoria(Categoria categoria, Produto produto) {
+        categoria.getItens().remove(produto);
+    }
+
+    @Override
+    public List<Produto> listarProdutosDeUmaCategoria(Categoria categoria) {
+        return categoria.getItens();
+    }
+
+    @Override
+    public Produto procurarProdutoNaCategoriaPorNome(String nomeProduto, Categoria categoria) {
+        for (Produto produto : categoria.getItens()) {
+            if (produto.getNome().equalsIgnoreCase(nomeProduto)) {
+                return produto;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Produto procurarProdutoNaCategoriaPorID(int id, Categoria categoria) {
+        for (Produto produto : categoria.getItens()) {
+            if (produto.getId() == id) {
+                return produto;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean verificarExistenciaDeProdutoNaCategoria (Produto produto, Categoria categoria){
+        for (Produto i : categoria.getItens()){
+            if (i.equals(produto)){
+                return true;
+            }
+        }
+        return false;
     }
 }
