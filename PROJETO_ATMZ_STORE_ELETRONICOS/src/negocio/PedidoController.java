@@ -36,14 +36,14 @@ public class PedidoController {
     public void criarPedido(Cliente cliente) {
     	// verificando se o cliente é nulo ou se o seu carrinho está vazio
     	
-        if (cliente == null || cliente.getCarrinho().listarProdutos().isEmpty()) {
+        if (cliente == null || cliente.getCarrinho().getItens().isEmpty()) {
             throw new PedidoInvalidoException();
         } 
     	List<ItemPedido> itens = new ArrayList<>();
     	
     	// Transformando os ItemDoCarrinho em ItemPedido
     	
-    	for (ItemDoCarrinho ic : cliente.getCarrinho().listarItens()) {
+    	for (ItemDoCarrinho ic : cliente.getCarrinho().getItens()) {
     		ItemPedido ip = new ItemPedido(ic.getProduto(), ic.getQuantidade());
     		itens.add(ip);
     	}
@@ -52,8 +52,7 @@ public class PedidoController {
         Pedido novoPedido = new Pedido(cliente, itens);
         repositorioPedidos.adicionarPedido(novoPedido);
         
-        //limpando o carrinho do cliente, visto que foi transformado em pedido
-        cliente.getCarrinho().limparCarrinho();
+        //ainda é preciso limpar o carrinho no main ou de alguma outra forma
     }
  
     // Calcular o total de um pedido com base nos sub-totais dos ItemPedido

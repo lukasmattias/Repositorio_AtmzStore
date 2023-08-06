@@ -3,14 +3,23 @@ package negocio;
 import java.util.List;
 
 import dados.IRepositorioAdministrador;
+import dados.RepositorioAdministrador;
 import exception.AdministradorNuloException;
 import negocio.beans.Administrador;
 
 public class AdministradorController {
+	private static AdministradorController instancia;
     private IRepositorioAdministrador repositorioAdministrador;
 
-    public AdministradorController(IRepositorioAdministrador repositorioAdministrador) {
-        this.repositorioAdministrador = repositorioAdministrador;
+    private void AdministradorController() {
+        this.repositorioAdministrador = RepositorioAdministrador.getInstance();
+    }
+    
+    public static AdministradorController getInstancia() {
+    	if (instancia == null) {
+    		instancia = new AdministradorController();
+    	}
+    	return instancia;
     }
 
     public void adicionarAdministrador(Administrador administrador) {

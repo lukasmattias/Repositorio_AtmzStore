@@ -8,6 +8,7 @@ import negocio.beans.Cliente;
 public class RepositorioClientes implements IRepositorioClientes {
     private static IRepositorioClientes instancia;
     private List<Cliente> clientes;
+    private int proxID = 1;
 
     private RepositorioClientes() {
         clientes = new ArrayList<>();
@@ -20,12 +21,16 @@ public class RepositorioClientes implements IRepositorioClientes {
         return instancia;
     }
 
-    /* (non-Javadoc)
-	 * @see dados.IRepositorioClientes#adicionarCliente(negocio.beans.Cliente)
+    /* verifica se o cliente passado como 
+	 * 
 	 */
     @Override
 	public void adicionarCliente(Cliente cliente) {
-        clientes.add(cliente);
+    	{
+        cliente.setId(proxID);
+        proxID++;
+        this.clientes.add(cliente);
+        }
     }
 
     /* (non-Javadoc)
@@ -33,10 +38,12 @@ public class RepositorioClientes implements IRepositorioClientes {
 	 */
     @Override
 	public Cliente buscarClientePorId(int id) {
-        return clientes.stream()
-            .filter(cliente -> cliente.getId() == id)
-            .findFirst()
-            .orElse(null);
+        for (Cliente p : this.clientes) {
+        	if (p.getId() == id) {
+        		return p;
+        	}
+        }
+        return null;
     }
 
     /* (non-Javadoc)

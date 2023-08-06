@@ -7,19 +7,20 @@ import negocio.beans.Administrador;
 
 
 public class RepositorioAdministrador implements IRepositorioAdministrador {
-    private static IRepositorioAdministrador instancia;
+    private static IRepositorioAdministrador instance;
     private List<Administrador> administradores;
 
     private RepositorioAdministrador() {
         administradores = new ArrayList<>();
     }
 
-    public static IRepositorioAdministrador getInstancia() {
-        if (instancia == null) {
-            instancia = new RepositorioAdministrador();
+    public static IRepositorioAdministrador getInstance() {
+        if (instance == null) {
+            instance = new RepositorioAdministrador();
         }
-        return instancia;
+        return instance;
     }
+    
 
     /* (non-Javadoc)
 	 * @see dados.IRepositorioAdministrador#adicionarAdministrador(negocio.beans.Administrador)

@@ -2,7 +2,7 @@ package exception;
 
 public class ProdutoNuloException extends RepositorioException {
     public ProdutoNuloException() {
-        super("Produto não pode ser nulo.");
+        super("Produto nao pode ser nulo.");
     }
 }
 

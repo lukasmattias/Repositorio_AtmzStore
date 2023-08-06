@@ -5,7 +5,7 @@ public abstract class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private Endereco endereco; // Adição da associação com Endereco
+    private Endereco endereco; // Adiï¿½ï¿½o da associaï¿½ï¿½o com Endereco
 
     public Usuario(int id, String nome, String email, String senha, Endereco endereco) {
         this.id = id;
@@ -36,5 +36,9 @@ public abstract class Usuario {
     }
     public Endereco getEndereco() {
         return endereco;
+    }
+    
+    public void setId(int id) {
+    	this.id = id;
     }
 }
