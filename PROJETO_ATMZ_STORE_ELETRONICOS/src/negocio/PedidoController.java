@@ -14,6 +14,7 @@ public class PedidoController {
     private static PedidoController instancia;
     private ServicoAtualizacaoStatus servicoAtualizacao;
     private IRepositorioPedidos repositorioPedidos;
+	EstoqueService estoqueService = new EstoqueService();
 
     private PedidoController() {
         repositorioPedidos = RepositorioPedidos.getInstancia();
@@ -46,12 +47,10 @@ public class PedidoController {
     	
         Pedido novoPedido = new Pedido(cliente, itens);
         repositorioPedidos.adicionarPedido(novoPedido);
-        
-        //ainda é preciso limpar o carrinho no main ou de alguma outra forma
     }
  
     // Calcular o total de um pedido com base nos sub-totais dos ItemPedido
-    public double calcularTotal(Pedido pedido) {
+    public double calcularTotalDoPedido(Pedido pedido) {
         double total = 0;
         for (ItemPedido item : pedido.getItens()) {
             total += item.getSubtotal();
@@ -71,6 +70,9 @@ public class PedidoController {
     private void cancelarPedido(Pedido pedido) {
     	if (pedido.getPagamento().getStatus() == Status.PENDENTE) {
     		servicoAtualizacao.atualizarStatus(pedido, Status.CANCELADO);
+            for (ItemPedido ip : pedido.getItens()){
+                estoqueService.aumentarEstoque(ip.getProduto(), ip.getQuantidade());
+            }
       	}
     }
 

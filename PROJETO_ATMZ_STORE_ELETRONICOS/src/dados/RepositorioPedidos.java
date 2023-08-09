@@ -37,6 +37,8 @@ public class RepositorioPedidos implements IRepositorioPedidos {
         pedido.setId(idProxDisponivel);
         pedidos.add(pedido);
         idProxDisponivel++;
+        // REVER A FORMA DE LIMPAR O CARRINHO. O MÉTODO DO CONTROLADOR DE CARRINHO NÃO PODE SER UTILIZADO
+        pedido.getCliente().getCarrinho().getItens().clear();
     }
     
     @Override

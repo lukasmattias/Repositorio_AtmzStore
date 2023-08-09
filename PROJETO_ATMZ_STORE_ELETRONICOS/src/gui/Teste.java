@@ -24,29 +24,7 @@ public class Teste {
 	ProdutoController produtoController = ProdutoController.getInstancia();
 	CarrinhoDeComprasController carrinhoController = CarrinhoDeComprasController.getInstancia();
 	
-	Cliente n = new Cliente ("Reginaldo Rossi", "ddfs", "fa", new Endereco("dcd", "cdd", "sfaf", "hth", "hgh"));
-	clienteController.adicionarCliente(n);
-
-	for (Cliente c : clienteController.listarClientes()) {
-		System.out.println(c.getNome());
-		System.out.println();
-	}
-	Categoria categoriaTeste = new Categoria ("SmarTV");
-	Produto produtoTeste = new Produto("TV samsung", "32 polegadas etc", 3455, 3);
-	carrinhoController.adicionarItem(n.getCarrinho(), produtoTeste, 2);
-	for (ItemDoCarrinho i : carrinhoController.listarItens(n.getCarrinho())) {
-		System.out.println("Itens no carrinho: ");
-		System.out.println(i.getProduto().toString());
-		System.out.println();
-	}
+	// instanciando clientes
 	
-	carrinhoController.removerItem(n.getCarrinho(), produtoTeste);
-	
-	for (ItemDoCarrinho i : carrinhoController.listarItens(n.getCarrinho())) {
-		System.out.println("Itens no carrinho: ");
-		System.out.println(i.getProduto().toString());
-		System.out.println();
-	}
-	}
 
 }
