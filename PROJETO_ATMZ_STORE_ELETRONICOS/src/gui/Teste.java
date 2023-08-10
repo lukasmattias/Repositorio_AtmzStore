@@ -199,7 +199,7 @@ public class Teste {
 		carrinhoController.adicionarProdutoNoCarrinho(cliente3.getCarrinho(), laptop1, -1);
 		
 		System.out.println("-------------------------------------------------");
-		System.out.println("ESTOQUE DOS PRODUTOS ANTES DE ADIÇÃO AO CARRINHO:");
+		System.out.println("ESTOQUE DOS PRODUTOS DEPOIS DE ADIÇÃO AO CARRINHO:");
 		System.out.println();
 			for (Produto p : produtoController.listarProdutos()){
 			System.out.println(p.getNome() + ", estoque: " + p.getEstoque() + " unidades.");
@@ -229,7 +229,7 @@ public class Teste {
 
 		Pedido pedidoCliente3 = pedidoController.criarPedido(cliente3);
 		
-		System.out.println("LISTANDO PEDIDOS NO POR CLIENTE:");
+		System.out.println("LISTANDO PEDIDOS POR CLIENTE:");
 	
 		for (Cliente c: clienteController.listarClientes()){
 			for (Pedido p: pedidoController.listarPedidosPorCliente(c)){
