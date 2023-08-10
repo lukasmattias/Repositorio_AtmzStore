@@ -59,6 +59,6 @@ Administradores responsáveis por gerenciar o catálogo de produtos, clientes e 
 * **REQ12** - A GUI deve apresentar uma tela de finalização de compra, na qual o cliente deve informar o tipo de pagamento, confirmar os seus dados pessoais e a compra do produto.
 * **REQ13** - A GUI deve apresentar uma tela de busca de produtos, na qual o cliente poderá procurar os produtos da loja por nome, ID ou categoria.
 * **REQ14** - O Repositório de Clientes não deve permitir o cadastro de clientes com o mesmo email.
-* **REQ15** - O controlador não deve permitir outras formas de pagamento além de boleto e cartão de credito.
+* **REQ15** - O controlador não deve permitir outras formas de pagamento além de PIX e cartão de credito.
 
 
