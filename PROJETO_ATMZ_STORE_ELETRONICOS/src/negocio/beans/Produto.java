@@ -10,12 +10,13 @@ public class Produto {
     private int estoque;
     private Categoria categoria;
 
-    public Produto(String nome, String descricao, double preco, int estoque) {
+    public Produto(String nome, String descricao, double preco, int estoque, Categoria categoria) {
         this.id = 0;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.estoque = estoque;
+        this.categoria = categoria;
     }
     
 	public void setCategoria(Categoria categoria) {

@@ -26,35 +26,35 @@ import negocio.beans.Produto;
 public class Teste {
 
 	public static void main(String[] args) {
-	ClienteController clienteController = ClienteController.getInstancia();
-	AdministradorController administradorController = AdministradorController.getInstancia();
-	CategoriaController categoriaController = CategoriaController.getInstancia();	
-	PagamentoController pagamentoController = PagamentoController.getInstancia();
-	PedidoController pedidoController = PedidoController.getInstancia();
-	ProdutoController produtoController = ProdutoController.getInstancia();
-	CarrinhoDeComprasController carrinhoController = CarrinhoDeComprasController.getInstancia();
-	Fachada fachada = Fachada.getInstance();
+		ClienteController clienteController = ClienteController.getInstancia();
+		AdministradorController administradorController = AdministradorController.getInstancia();
+		CategoriaController categoriaController = CategoriaController.getInstancia();	
+		PagamentoController pagamentoController = PagamentoController.getInstancia();
+		PedidoController pedidoController = PedidoController.getInstancia();
+		ProdutoController produtoController = ProdutoController.getInstancia();
+		CarrinhoDeComprasController carrinhoController = CarrinhoDeComprasController.getInstancia();
+		Fachada fachada = Fachada.getInstance();
+		
+		// instanciando clientes
 	
-	// instanciando clientes
-
-		// Criando 3 endereços válidos
-	Endereco enderecoCliente1 = new Endereco("Rua das Flores", "123", "São Paulo", "SP", "01010-000");
-	Endereco enderecoCliente2 = new Endereco("Avenida dos Bandeirantes", "456", "Rio de Janeiro", "RJ", "20000-000");
-	Endereco enderecoCliente3 = new Endereco("Rua das Palmeiras", "789", "Belo Horizonte", "MG", "30000-000");
-		// Criando 3 endereços inválidos
-	Endereco enderecoCliente4 = new Endereco("Rua das Acácias", "1011", "Curitiba", "PR", "80000-000");
-	Endereco enderecoCliente5 = new Endereco("Avenida das Mangueiras", "1213", "Salvador", "BA", "40000-000");
-	Endereco enderecoCliente6 = new Endereco("Avenida do Marco", "1444", "Limoeiro", "PE", "40202-000");
-	
-	// Criando 3 clientes válidos
-	Cliente cliente1 = new Cliente("João Silva", "joao.silva@gmail.com", "senha123", enderecoCliente1);
-	Cliente cliente2 = new Cliente("Maria Santos", null, "senha456", enderecoCliente2);
-	Cliente cliente3 = new Cliente("Pedro Almeida", "pedro.almeida@gmail.com", "senha789", enderecoCliente3);
-	
-	// criando 3 clientes inválidos
-	Cliente cliente4 = new Cliente(null, "ana.oliveira@gmail.com", "senha1011", enderecoCliente4);
-	Cliente cliente5 = new Cliente("Lucas Souza", "lucas.souza@gmail.com", " ", enderecoCliente5);	
-	Cliente cliente6 = new Cliente("Mano Menezes", "lucas.souza@gmail.com", "senha1213", enderecoCliente5);	
+			// Criando 3 endereços válidos
+		Endereco enderecoCliente1 = new Endereco("Rua das Flores", "123", "São Paulo", "SP", "01010-000");
+		Endereco enderecoCliente2 = new Endereco("Avenida dos Bandeirantes", "456", "Rio de Janeiro", "RJ", "20000-000");
+		Endereco enderecoCliente3 = new Endereco("Rua das Palmeiras", "789", "Belo Horizonte", "MG", "30000-000");
+			// Criando 3 endereços inválidos
+		Endereco enderecoCliente4 = new Endereco("Rua das Acácias", "1011", "Curitiba", "PR", "80000-000");
+		Endereco enderecoCliente5 = new Endereco("Avenida das Mangueiras", "1213", "Salvador", "BA", "40000-000");
+		Endereco enderecoCliente6 = new Endereco("Avenida do Marco", "1444", "Limoeiro", "PE", "40202-000");
+		
+		// Criando 3 clientes válidos
+		Cliente cliente1 = new Cliente("João Silva", "joao.silva@gmail.com", "senha123", enderecoCliente1);
+		Cliente cliente2 = new Cliente("Maria Santos", null, "senha456", enderecoCliente2);
+		Cliente cliente3 = new Cliente("Pedro Almeida", "pedro.almeida@gmail.com", "senha789", enderecoCliente3);
+		
+		// criando 3 clientes inválidos
+		Cliente cliente4 = new Cliente(null, "ana.oliveira@gmail.com", "senha1011", enderecoCliente4);
+		Cliente cliente5 = new Cliente("Lucas Souza", "lucas.souza@gmail.com", " ", enderecoCliente5);	
+		Cliente cliente6 = new Cliente("Mano Menezes", "lucas.souza@gmail.com", "senha1213", enderecoCliente5);	
 
 		// Cadastrando cliente com dados corretos
 		clienteController.cadastrarCliente(cliente1, enderecoCliente1);
@@ -78,34 +78,34 @@ public class Teste {
  
 		// Cadastrando categorias com dados válidos
 	
-    categoriaController.cadastrarCategoria(eletrodomesticos);
+		categoriaController.cadastrarCategoria(eletrodomesticos);
 		categoriaController.cadastrarCategoria(smartphones);
 		categoriaController.cadastrarCategoria(laptops);
 
-    // Tentando cadastrar categorias com dados inválidos
+		// Tentando cadastrar categorias com dados inválidos
 
 		categoriaController.cadastrarCategoria(laptops);
 		categoriaController.cadastrarCategoria(acessorios);
 		
-			//Instanciando 3 produtos válidos
+		//Instanciando 3 produtos válidos
         Produto laptop1 = new Produto("Laptop Ideapad", "Laptop de alto desempenho", 2499.99, 20);
-				Produto eletrodomestico1 = new Produto("Geladeira Frost Free", "Geladeira espaçosa", 1799.99, 30);
-				Produto smartphone1 = new Produto("Smartphone Modelo X", "Descrição do Smartphone", 999.99, 50);
+		Produto eletrodomestico1 = new Produto("Geladeira Frost Free", "Geladeira espaçosa", 1799.99, 30);
+		Produto smartphone1 = new Produto("Smartphone Modelo X", "Descrição do Smartphone", 999.99, 50);
 				
 
-			//Instanciando 2 produtos inválidos
-				Produto laptop2 = new Produto(null, "Laptop elegante da Apple", 2999.99, 15);
-				Produto smartphone2 = new Produto("Smartphone Modelo X", "", 999.99, 50);
+		//Instanciando 2 produtos inválidos
+		Produto laptop2 = new Produto(null, "Laptop elegante da Apple", 2999.99, 15);
+		Produto smartphone2 = new Produto("Smartphone Modelo X", "", 999.99, 50);
 
 		// Cadastrar produto válidos
     	produtoController.cadastrarProduto(laptop1);
-			produtoController.cadastrarProduto(eletrodomestico1);
-			produtoController.cadastrarProduto(smartphone1);
+		produtoController.cadastrarProduto(eletrodomestico1);
+		produtoController.cadastrarProduto(smartphone1);
 	
 		// Tentando cadastrar produtos inválidos
-			produtoController.cadastrarProduto(laptop2);
-      produtoController.cadastrarProduto(smartphone2);
-			produtoController.cadastrarProduto(smartphone2); // repetição
+		produtoController.cadastrarProduto(laptop2);
+		produtoController.cadastrarProduto(smartphone2);
+		produtoController.cadastrarProduto(smartphone2); // repetição
 
 		// Cadastrando 3 produtos válidos a categoria
 		categoriaController.adicionarProdutoACategoria(laptop1, laptops);
@@ -113,7 +113,7 @@ public class Teste {
 		categoriaController.adicionarProdutoACategoria(smartphone1, smartphones);
 
 		// tentando adicionar 2 produtos inválido a categoria
-				categoriaController.adicionarProdutoACategoria(laptop2, laptops);
+		categoriaController.adicionarProdutoACategoria(laptop2, laptops);
         categoriaController.adicionarProdutoACategoria(smartphone2, laptops);
 
 		// adicionando produtos ao carrinho de 2 clientes
