@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sample.LoginController">
+    <padding>
+        <Insets top="0" right="0" bottom="0" left="0"/>
+    </padding>
+
+    <GridPane alignment="CENTER">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <vgap>10</vgap>
+        <hgap>10</hgap>
+
+        <Label text="Usuário:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="usernameInput" promptText="Digite seu usuário" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Senha:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <PasswordField fx:id="passwordInput" promptText="Digite sua senha" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Button text="Login" onAction="#loginButtonClicked" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+</StackPane>
