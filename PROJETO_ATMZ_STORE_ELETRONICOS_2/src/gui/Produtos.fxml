@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProdutosController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -19,14 +18,14 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Button layoutX="524.0" layoutY="17.0" mnemonicParsing="false" text="Carrinho" />
+            <Button fx:id="btnAbrirCarrinho" layoutX="524.0" layoutY="17.0" mnemonicParsing="false" onAction="#abrirCarrinhoAcionado" text="Carrinho" />
             <ButtonBar layoutY="65.0" prefHeight="40.0" prefWidth="586.0">
               <buttons>
-                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Smartphones" />
-                  <Button mnemonicParsing="false" text="Eletr. Domésticos" />
-                  <Button mnemonicParsing="false" text="Gadgets" />
-                  <Button mnemonicParsing="false" text="Foto e Video" />
-                  <Button mnemonicParsing="false" text="Computadores" />
+                <Button fx:id="btnSmartphones" mnemonicParsing="false" onAction="#selecionadoSmartphones" prefHeight="26.0" prefWidth="94.0" text="Smartphones" />
+                  <Button fx:id="btnEletrDomesticos" mnemonicParsing="false" onAction="#selecionadoEletrDomesticos" text="Eletr. Domésticos" />
+                  <Button fx:id="btnGadgets" mnemonicParsing="false" onAction="#selecionadoGadgets" text="Gadgets" />
+                  <Button fx:id="btnFotoeVideo" mnemonicParsing="false" onAction="#selecionadoFotoeVideo" text="Foto e Video" />
+                  <Button fx:id="btnComputadores" mnemonicParsing="false" onAction="#selecionadoComputadores" text="Computadores" />
               </buttons>
             </ButtonBar>
             <TableView layoutY="113.0" prefHeight="289.0" prefWidth="600.0">
@@ -43,3 +42,4 @@
       </AnchorPane>
    </center>
 </BorderPane>
+
