@@ -5,21 +5,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class CadastrarController {
+
     @FXML
     private Button btnConfirmarCad;
+    @FXML
+    private Button btnVoltarTelaLogin;
 
     @FXML
-    private Button btnVoltarTela1;
-
-    @FXML
-    public void voltarTelaIncial(ActionEvent event) {
+    public void voltarTelaLogin(ActionEvent event) {
 
     }
 
     @FXML
-    public void confirmarCadastroAcionado (ActionEvent event) {
+    public void confirmarCadastro(ActionEvent event) {
 
     }
-
-
+    
 }
