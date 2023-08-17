@@ -1,22 +1,22 @@
 package gui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 
 public class LoginController {
 
     @FXML
-    private TextField usernameInput;
+    private TextField usuarioInput;
+    @FXML
+    private PasswordField senhaInput;
 
     @FXML
-    private PasswordField passwordInput;
-    @FXML
-    public void loginButtonClicked(MouseEvent mouseEvent) {
-        String username = usernameInput.getText();
-        String password = passwordInput.getText();
+    public void confirmarLogin(ActionEvent event) {
+        String username = usuarioInput.getText();
+        String password = senhaInput.getText();
         
-        if (isValidCredentials(username, password)) {
+        if (validarCredenciais(username, password)) {
             System.out.println("Login bem-sucedido!");
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -27,7 +27,13 @@ public class LoginController {
         }
     }
 
-    private boolean isValidCredentials(String username, String password) {
+    @FXML
+    public void cadastrarAcionado(ActionEvent event) {
+
+    }
+
+    private boolean validarCredenciais(String username, String password) {
+
         return username.equals("usuario") && password.equals("senha");
     }
 }
