@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CarrinhoController">
+    <padding>
+        <Insets bottom="0" left="0" right="0" top="0" />
+    </padding>
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="239.0" layoutY="14.0" text="Carrinho" textFill="#8b3dff">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <TableView layoutY="59.0" prefHeight="284.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="CarrinhoID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="CarrinhoNome" prefWidth="75.0" text="Nome" />
+                  <TableColumn fx:id="CarrinhoDescricao" prefWidth="358.0" text="Descrição" />
+                  <TableColumn fx:id="CarrinhoPreco" minWidth="0.0" prefWidth="91.0" text="Preço" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnRealizarPedido" layoutX="476.0" layoutY="361.0" mnemonicParsing="false" onAction="#IrParaTelaPagamento" text="Realizar Pedido">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="24.0" layoutY="356.0" prefHeight="17.0" prefWidth="74.0" text="SubTotal R$">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="CarrinhoSubTotal" layoutX="105.0" layoutY="356.0" opacity="0.32" prefHeight="17.0" prefWidth="89.0" text="SubTotal" />
+            <Button fx:id="btnCarrinhoVolta" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#VoltarProdutos" text="Voltar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
