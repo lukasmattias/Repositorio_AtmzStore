@@ -16,13 +16,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class PagamentoController {
-	private Stage stage;
-	private Scene scene;
-	
+    private Stage stage;
+    private Scene scene;
 
-	 @FXML
-	 private AnchorPane PagamentoAnchorPane;
-	 
+
+    @FXML
+    private AnchorPane PagamentoAnchorPane;
+
     @FXML
     private Label PagamentoSubTotal;
 
@@ -38,30 +38,30 @@ public class PagamentoController {
     @FXML
     private Button btnPix;
 
-    //@FXML
-    //void ConfirmarCompra(ActionEvent event) {
+    @FXML
+    void ConfirmarCompra(ActionEvent event) {
 
-    //}
+    }
 
     @FXML
     void TelaCredito(ActionEvent event) throws IOException{
-    	AnchorPane a = FXMLLoader.load(getClass().getResource(".fxml"));
-    	PagamentoAnchorPane.getChildren().setAll(a);
+        AnchorPane a = FXMLLoader.load(getClass().getResource("/Credito.fxml"));
+        PagamentoAnchorPane.getChildren().setAll(a);
     }
 
     @FXML
     void TelaPix(ActionEvent event) throws IOException{
-    	AnchorPane a = FXMLLoader.load(getClass().getResource("PIX.fxml"));
-    	PagamentoAnchorPane.getChildren().setAll(a);
+        AnchorPane a = FXMLLoader.load(getClass().getResource("/PIX.fxml"));
+        PagamentoAnchorPane.getChildren().setAll(a);
     }
 
     @FXML
     void VoltarCarrinho(ActionEvent event) throws IOException{
-    	Parent root = FXMLLoader.load(getClass().getResource("Carrinho.fxml"));
-    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-   	 	scene = new Scene(root);
-   	 	stage.setTitle("ATMZ STORE");
-   	 	stage.setScene(scene);
-   	 	stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("/Carrinho.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("ATMZ STORE");
+        stage.setScene(scene);
+        stage.show();
     }
 }
