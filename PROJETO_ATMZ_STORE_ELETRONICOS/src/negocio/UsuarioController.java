@@ -36,16 +36,15 @@ public class UsuarioController {
     }
 
     public void cadastrarUsuario(Usuario usuario) throws OperacaoInvalidaException{
-        if (usuario == null || usuario.getEmail() == null ||
-                usuario.getEndereco() == null ||
-                usuario.getNome() == null ||
-                usuario.getSenha() == null ||
-                usuario.getEndereco().getCEP() == null || usuario.getEndereco().getCEP().isEmpty() ||
-                usuario.getEndereco().getRua() == null || usuario.getEndereco().getRua().isEmpty() ||
-                usuario.getEndereco().getCidade() == null || usuario.getEndereco().getCidade().isEmpty() ||
-                usuario.getEndereco().getEstado() == null || usuario.getEndereco().getEstado().isEmpty() ||
-                usuario.getEndereco().getNumero() == null || usuario.getEndereco().getNumero().isEmpty()) {
-            return;
+        if (usuario == null || usuario.getEmail() == null || usuario.getEmail().isEmpty() || usuario.getEmail().isBlank() ||
+                usuario.getEndereco() == null || usuario.getNome() == null || usuario.getNome().isEmpty() || usuario.getNome().isBlank() ||
+                usuario.getSenha() == null || usuario.getSenha().isEmpty() || usuario.getSenha().isBlank() || 
+                usuario.getEndereco().getCEP() == null || usuario.getEndereco().getCEP().isEmpty() || usuario.getEndereco().getCEP().isBlank() ||
+                usuario.getEndereco().getRua() == null || usuario.getEndereco().getRua().isEmpty() || usuario.getEndereco().getRua().isBlank() ||
+                usuario.getEndereco().getCidade() == null || usuario.getEndereco().getCidade().isEmpty() || usuario.getEndereco().getCidade().isBlank() ||
+                usuario.getEndereco().getEstado() == null || usuario.getEndereco().getEstado().isEmpty() || usuario.getEndereco().getEstado().isBlank() ||
+                usuario.getEndereco().getNumero() == null || usuario.getEndereco().getNumero().isEmpty() || usuario.getEndereco().getNumero().isBlank()) {
+        	throw new OperacaoInvalidaException("Dados nulos ou vazios.");
         }
         
         if(this.buscarUsuarioPorEmail(usuario.getEmail()) == null) {
