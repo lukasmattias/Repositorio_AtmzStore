@@ -20,6 +20,9 @@ public class AdmController {
     private MenuItem AdmProdutoInfo;
 
     @FXML
+    private MenuItem AdmHistoricoCompras;
+
+    @FXML
     private AnchorPane AnchorPaneADM;
 
     @FXML
@@ -38,6 +41,11 @@ public class AdmController {
     void IrAdmProduto(ActionEvent event) throws IOException{
     	Pane a = FXMLLoader.load(getClass().getResource("AdmProdutos.fxml"));
     	AnchorPaneADM.getChildren().setAll(a);
+    }
+
+    @FXML
+    void IrAdmHistoricoCompras(ActionEvent event) throws IOException {
+
     }
 
 }
