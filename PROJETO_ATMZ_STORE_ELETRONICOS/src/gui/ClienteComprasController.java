@@ -16,8 +16,23 @@ public class ClienteComprasController {
 
     private Stage stage;
     private Scene scene;
+    
     @FXML
     private Button btnVoltarCarrinho;
+    
+    @FXML
+    private TableColumn ClienteNome;
+    @FXML
+    private TableColumn ClientePedidoID;
+    @FXML
+    private TableColumn ClientePedidoDataHora;
+    @FXML
+    private TableColumn ClientePedidoItem;
+    @FXML
+    private TableColumn ClientePedidoItemID;
+    @FXML
+    private TableColumn ClientePedidoDescricao;
+
 
     @FXML
     void VoltarCarrinho(ActionEvent event)  throws IOException {
