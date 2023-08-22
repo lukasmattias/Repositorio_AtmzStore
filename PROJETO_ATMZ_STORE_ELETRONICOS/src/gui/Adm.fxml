@@ -13,33 +13,39 @@
     <padding>
         <Insets bottom="0" left="0" right="0" top="0" />
     </padding>
-   <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <MenuBar prefHeight="36.0" prefWidth="600.0" VBox.vgrow="NEVER">
-              <menus>
-                <Menu mnemonicParsing="false" text="Clientes">
-                  <items>
-                    <MenuItem fx:id="AdmClienteInfo" mnemonicParsing="false" onAction="#IrAdmCliente" text="Clientes Informacoes" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Produtos">
-                  <items>
-                    <MenuItem fx:id="AdmProdutoInfo" mnemonicParsing="false" onAction="#IrAdmProduto" text="Produtos Infornaçoes" />
-                  </items>
-                </Menu>
-                  <Menu fx:id="AdmCategoriaInfo" mnemonicParsing="false" text="Categorias">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <MenuBar prefHeight="36.0" prefWidth="600.0" VBox.vgrow="NEVER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Clientes">
+                            <items>
+                                <MenuItem fx:id="AdmClienteInfo" mnemonicParsing="false" onAction="#IrAdmCliente" text="Clientes Informacoes" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Produtos">
+                            <items>
+                                <MenuItem fx:id="AdmProdutoInfo" mnemonicParsing="false" onAction="#IrAdmProduto" text="Produtos Infornaçoes" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="AdmCategoriaInfo" mnemonicParsing="false" text="Categorias">
+                            <items>
+                                <MenuItem fx:id="Adm" mnemonicParsing="false" onAction="#IrAdmCategoria" text="Categorias informações" />
+                            </items>
+                        </Menu>
+                  <Menu mnemonicParsing="false" text="Histórico de Compras">
                     <items>
-                      <MenuItem fx:id="Adm" mnemonicParsing="false" onAction="#IrAdmCategoria" text="Categorias informações" />
+                      <MenuItem fx:id="AdmHistoricoCompras" mnemonicParsing="false" onAction="#IrAdmHistoricoCompras" text="Mostrar Histórico" />
                     </items>
                   </Menu>
-              </menus>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </MenuBar>
-            <AnchorPane fx:id="AnchorPaneADM" prefHeight="382.0" prefWidth="600.0" />
-         </children>
-      </VBox>
-   </children>
+                    </menus>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </MenuBar>
+                <AnchorPane fx:id="AnchorPaneADM" prefHeight="382.0" prefWidth="600.0" />
+            </children>
+        </VBox>
+    </children>
 </StackPane>
+
