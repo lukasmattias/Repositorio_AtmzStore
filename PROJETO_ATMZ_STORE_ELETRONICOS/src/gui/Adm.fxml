@@ -33,9 +33,9 @@
                                 <MenuItem fx:id="Adm" mnemonicParsing="false" onAction="#IrAdmCategoria" text="Categorias informações" />
                             </items>
                         </Menu>
-                  <Menu mnemonicParsing="false" text="Histórico de Compras">
+                  <Menu mnemonicParsing="false" text="Histórico de Vendas">
                     <items>
-                      <MenuItem fx:id="AdmHistoricoCompras" mnemonicParsing="false" onAction="#IrAdmHistoricoCompras" text="Mostrar Histórico" />
+                      <MenuItem fx:id="AdmHistoricoVendas" mnemonicParsing="false" onAction="#IrAdmHistoricoVendas" text="Mostrar Histórico" />
                     </items>
                   </Menu>
                     </menus>
@@ -48,4 +48,3 @@
         </VBox>
     </children>
 </StackPane>
-
