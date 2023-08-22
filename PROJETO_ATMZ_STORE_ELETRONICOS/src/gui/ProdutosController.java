@@ -50,8 +50,8 @@ public class ProdutosController {
 	 @FXML
 	    private Button btnVoltarParaLogin;
 	 
-		@FXML
-	    private TableView<Produto> tableView;
+	 @FXML
+	   private TableView<Produto> tableView;
 	 	
 	    @FXML
 	    private TableColumn<Produto, Integer> colId, colEstoque;
@@ -131,10 +131,11 @@ public class ProdutosController {
 	    	}	
 	    	List<Produto> produtosFiltrados = new ArrayList<>();
 	    	for (Produto p : tableView.getItems()) {
-	    		if (p.getCategoria().getNome().equals(categoria)) {
-	    			produtosFiltrados.add(p);
-	    		}
-	    	}
+			Categoria categoriaDoProduto = p.getCategoria();
+			if (categoriaDoProduto != null && categoriaDoProduto.getNome().equals(categoria)) {
+				produtosFiltrados.add(p);
+			}
+		}
 	       tableView.getItems().setAll(produtosFiltrados);
 	    }
 	
