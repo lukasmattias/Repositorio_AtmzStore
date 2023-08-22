@@ -9,7 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class AdmController {
-	
+
     @FXML
     private MenuItem AdmCategoriaInfo;
 
@@ -26,26 +26,27 @@ public class AdmController {
     private AnchorPane AnchorPaneADM;
 
     @FXML
-    void IrAdmCategoria(ActionEvent event) throws IOException{
-    	Pane a = FXMLLoader.load(getClass().getResource("AdmCategorias.fxml"));
-    	AnchorPaneADM.getChildren().setAll(a);
+    void IrAdmCategoria(ActionEvent event) throws IOException {
+        Pane a = FXMLLoader.load(getClass().getResource("AdmCategorias.fxml"));
+        AnchorPaneADM.getChildren().setAll(a);
     }
 
     @FXML
-    void IrAdmCliente(ActionEvent event) throws IOException{
-    	Pane a = FXMLLoader.load(getClass().getResource("AdmCliente.fxml"));
-    	AnchorPaneADM.getChildren().setAll(a);
+    void IrAdmCliente(ActionEvent event) throws IOException {
+        Pane a = FXMLLoader.load(getClass().getResource("AdmCliente.fxml"));
+        AnchorPaneADM.getChildren().setAll(a);
     }
 
     @FXML
-    void IrAdmProduto(ActionEvent event) throws IOException{
-    	Pane a = FXMLLoader.load(getClass().getResource("AdmProdutos.fxml"));
-    	AnchorPaneADM.getChildren().setAll(a);
+    void IrAdmProduto(ActionEvent event) throws IOException {
+        Pane a = FXMLLoader.load(getClass().getResource("AdmProdutos.fxml"));
+        AnchorPaneADM.getChildren().setAll(a);
     }
 
     @FXML
-    void IrAdmHistoricoCompras(ActionEvent event) throws IOException {
-
+    void IrAdmHistoricoVendas(ActionEvent event) throws IOException {
+        Pane a = FXMLLoader.load(getClass().getResource("AdmHistoricoVendas.fxml"));
+        AnchorPaneADM.getChildren().setAll(a);
     }
 
 }
