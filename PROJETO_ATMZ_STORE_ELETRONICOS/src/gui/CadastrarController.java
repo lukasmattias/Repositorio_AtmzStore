@@ -86,7 +86,46 @@ public class CadastrarController {
         }
        
     }
-    
+
+    @FXML
+    public void confirmarCadastroEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+
+            String nome = nomeInput.getText();
+            String password = senhaInput.getText();
+            String email = emailInput.getText();
+            String estado = estadoInput.getText();
+            String cidade = cidadeInput.getText();
+            String rua = ruaInput.getText();
+            String numero = numeroDaCasaInput.getText();
+            String cep = cepInput.getText();
+
+            try {
+                UsuarioController.getInstancia().cadastrarUsuario(new Cliente(nome, email, password, new Endereco(rua, numero, cidade, estado, cep)));
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Cadastro Concluído");
+                alert.setHeaderText("Cadastro realizado com sucesso!");
+                alert.showAndWait();
+            }
+            catch (OperacaoInvalidaException e) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Erro de Cadastro");
+                alert.setHeaderText("Ocorreu um erro durante o cadastro:");
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
+
+            finally {
+                Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setTitle("ATMZ STORE");
+                stage.setScene(scene);
+                stage.show();
+            }
+        }
+    }
+
     @FXML
     public void initialize() {
     	permitirApenasNumeros(numeroDaCasaInput);
