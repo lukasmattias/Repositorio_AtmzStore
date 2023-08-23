@@ -63,7 +63,7 @@
             <TextField fx:id="estadoInput" layoutX="201.0" layoutY="197.0" prefHeight="26.0" prefWidth="175.0" />
             <TextField fx:id="cidadeInput" layoutX="201.0" layoutY="227.0" prefHeight="26.0" prefWidth="175.0" />
             <TextField fx:id="ruaInput" layoutX="201.0" layoutY="256.0" prefHeight="26.0" prefWidth="175.0" />
-            <TextField fx:id="cepInput" layoutX="201.0" layoutY="320.0" prefHeight="26.0" prefWidth="175.0" />
+            <TextField fx:id="cepInput" layoutX="201.0" layoutY="320.0" onKeyPressed="#confirmarCadastroEnter" prefHeight="26.0" prefWidth="175.0" />
             <TextField fx:id="numeroDaCasaInput" layoutX="201.0" layoutY="290.0" prefHeight="26.0" prefWidth="175.0" />
             <Button fx:id="btnConfirmarCad" layoutX="254.0" layoutY="360.0" mnemonicParsing="false" onAction="#confirmarCadastro" text="Confirmar">
                <cursor>
