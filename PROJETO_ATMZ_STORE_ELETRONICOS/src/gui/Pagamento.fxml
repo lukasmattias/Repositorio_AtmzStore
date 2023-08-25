@@ -30,7 +30,7 @@
                         <TableColumn fx:id="PagamentoPreco" minWidth="0.0" prefWidth="91.0" text="Preço" />
                     </columns>
                 </TableView>
-                <Button fx:id="btnConfirmarPedido" layoutX="42.0" layoutY="375.0" mnemonicParsing="false" onAction="#ConfirmarCompra" text="Confirmar">
+                <Button fx:id="btnConfirmarPedido" layoutX="42.0" layoutY="375.0" mnemonicParsing="false" onAction="#confirmarCompra" text="Confirmar">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
@@ -43,17 +43,17 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </Label>
-                <Label fx:id="PagamentoSubTotal" layoutX="107.0" layoutY="315.0" opacity="0.32" prefHeight="17.0" prefWidth="89.0" text="SubTotal" />
-                <Button fx:id="btnPagamentoVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#VoltarCarrinho" text="Voltar">
+                <Label fx:id="PagamentoSubTotal" layoutX="107.0" layoutY="315.0" opacity="0.32" prefHeight="17.0" prefWidth="89.0" text="R$ 0.00" />
+                <Button fx:id="btnPagamentoVoltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltarCarrinho" text="Voltar">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor></Button>
-                <Button fx:id="btnCredito" layoutX="25.0" layoutY="259.0" mnemonicParsing="false" onAction="#TelaCredito" text="Credito">
+                <Button fx:id="btnCredito" layoutX="25.0" layoutY="259.0" mnemonicParsing="false" onAction="#telaCredito" text="Credito">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="btnPix" layoutX="107.0" layoutY="259.0" mnemonicParsing="false" onAction="#TelaPix" text="PIX">
+                <Button fx:id="btnPix" layoutX="107.0" layoutY="259.0" mnemonicParsing="false" onAction="#telaPix" text="PIX">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
