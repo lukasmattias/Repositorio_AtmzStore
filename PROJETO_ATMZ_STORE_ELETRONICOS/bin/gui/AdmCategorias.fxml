@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdmCategoriaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdmCategoriaController">
    <children>
-      <SplitPane dividerPositions="0.3277591973244147" prefHeight="382.0" prefWidth="600.0">
+      <SplitPane dividerPositions="0.3277591973244147" prefHeight="427.0" prefWidth="700.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="157.0" prefWidth="335.0">
                <children>
-                  <TableView prefHeight="375.0" prefWidth="200.0">
+                  <TableView prefHeight="425.0" prefWidth="226.0">
                     <columns>
                       <TableColumn fx:id="AdmCategoriaNome" prefWidth="75.0" text="Nome" />
                       <TableColumn fx:id="AdmCategoriaID" prefWidth="75.0" text="ID" />
@@ -54,13 +54,13 @@
                         <Label fx:id="lblAdmCategoriaID" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
-                  <TableView layoutY="107.0" prefHeight="190.0" prefWidth="399.0">
+                  <TableView layoutY="116.0" prefHeight="247.0" prefWidth="466.0">
                     <columns>
-                      <TableColumn fx:id="AdmNomeCategoriaProduto" prefWidth="198.0" text="Nome" />
-                      <TableColumn fx:id="AdmIDCategoriaProdutos" prefWidth="194.0" text="ID" />
+                      <TableColumn fx:id="AdmNomeCategoriaProduto" prefWidth="204.0" text="Nome" />
+                      <TableColumn fx:id="AdmIDCategoriaProdutos" prefWidth="261.0" text="ID" />
                     </columns>
                   </TableView>
-                  <ButtonBar layoutX="42.0" layoutY="320.0" prefHeight="40.0" prefWidth="200.0">
+                  <ButtonBar layoutX="102.0" layoutY="371.0" prefHeight="40.0" prefWidth="200.0">
                      <buttons>
                         <Button fx:id="btnVoltarLogin" mnemonicParsing="false" onAction="#VoltarLogin" text="Voltar" />
                         <Button fx:id="btnAdmCategoriaAdicionar" mnemonicParsing="false" text="Adicionar">

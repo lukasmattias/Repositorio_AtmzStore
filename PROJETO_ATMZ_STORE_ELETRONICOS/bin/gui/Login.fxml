@@ -20,7 +20,7 @@
         <Insets bottom="0" left="0" right="0" top="0" />
     </padding>
 
-    <GridPane fx:id="TelaLogin" alignment="CENTER" prefHeight="300.0" prefWidth="500.0">
+    <GridPane fx:id="TelaLogin" alignment="CENTER" prefHeight="450.0" prefWidth="700.0">
         <padding>
             <Insets bottom="20" left="20" right="20" top="20" />
         </padding>
@@ -32,26 +32,26 @@
                 <Font size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="usuarioInput" promptText="Digite seu usuário" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+        <TextField fx:id="usuarioInput" onKeyPressed="#confirmarLoginEnter" promptText="Digite seu usuário" GridPane.columnIndex="5" GridPane.rowIndex="5" />
 
         <Label text="Senha:" GridPane.columnIndex="1" GridPane.rowIndex="7">
             <font>
                 <Font size="14.0" />
             </font>
         </Label>
-        <PasswordField fx:id="senhaInput" promptText="Digite sua senha" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+        <PasswordField fx:id="senhaInput" onKeyPressed="#confirmarLoginEnter" promptText="Digite sua senha" GridPane.columnIndex="5" GridPane.rowIndex="7" />
         <ButtonBar prefHeight="40.0" prefWidth="168.0" GridPane.columnIndex="5" GridPane.rowIndex="9" />
         <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#cadastrarAcionado" text="Cadastrar" GridPane.columnIndex="5" GridPane.rowIndex="10">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
 
         <Button fx:id="btnLogin" onAction="#confirmarLogin" text="Confirmar" GridPane.columnIndex="5" GridPane.rowIndex="9">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></Button>
         <ImageView fx:id="ImagemLogo" fitHeight="103.0" fitWidth="353.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
-         <image>
+            <image>
             <Image url="@../Logo2.png" />
          </image></ImageView>
         <columnConstraints>
