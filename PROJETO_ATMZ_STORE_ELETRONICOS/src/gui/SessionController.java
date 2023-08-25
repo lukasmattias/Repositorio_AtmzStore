@@ -7,7 +7,7 @@ public class SessionController {
 	    private Usuario usuarioLogado;
 
 	    private SessionController() {
-	        // Private constructor to prevent instantiation
+	        
 	    }
 
 	    public static SessionController getInstance() {

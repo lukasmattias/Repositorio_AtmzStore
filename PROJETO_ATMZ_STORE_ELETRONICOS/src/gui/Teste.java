@@ -236,18 +236,6 @@ public class Teste {
 			}
 		}
 
-		// Simulando o pagamento do pedido 3 com pix => FALHA (Dados incompatíveis com a chaPix esperada> 12.345.678/0001-23)
-		if (pedidoCliente2 != null){
-			// CHAVE PIX ESPERADA: 12.345.678/0001-23 => CNPJ da ATMZ Store
-			PagamentoPix pagClient2 = new PagamentoPix(pedidoCliente2.getValorTotal(), "5553263624");
-			try {
-				pagamentoController.realizarPagamento(pedidoCliente3, pagClient2);
-			} catch (FalhaPagamentoException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
 
 }
 }

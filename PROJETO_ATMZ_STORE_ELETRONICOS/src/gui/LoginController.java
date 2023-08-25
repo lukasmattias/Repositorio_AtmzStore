@@ -23,6 +23,7 @@ public class LoginController {
 
     private Stage stage;
     private Scene scene;
+    private Parent root;
 
     @FXML
     private TextField usuarioInput;
@@ -52,7 +53,7 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.show();
             }
-
+            SessionController.getInstance().setUsuarioLogado(UsuarioController.getInstancia().buscarUsuarioPorEmail(username));
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Credenciais Invalidas");
@@ -85,7 +86,7 @@ public class LoginController {
                     stage.setScene(scene);
                     stage.show();
                 }
-
+                SessionController.getInstance().setUsuarioLogado(UsuarioController.getInstancia().buscarUsuarioPorEmail(username));
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Credenciais Invalidas");
