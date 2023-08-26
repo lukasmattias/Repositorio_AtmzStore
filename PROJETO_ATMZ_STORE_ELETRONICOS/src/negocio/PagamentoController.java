@@ -60,7 +60,7 @@ public class PagamentoController {
         return false; 
     }
 
-    private boolean verificarAtributosCartao(CartaoDeCredito pagamentoCartao) {
+    public boolean verificarAtributosCartao(CartaoDeCredito pagamentoCartao) {
         return pagamentoCartao.getParcelas() > 0 && pagamentoCartao.getParcelas() <= 12 &&
                pagamentoCartao.getNumeroCartao() != null && !pagamentoCartao.getNumeroCartao().isEmpty() &&
                pagamentoCartao.getCVV() != null && !pagamentoCartao.getCVV().isEmpty() &&

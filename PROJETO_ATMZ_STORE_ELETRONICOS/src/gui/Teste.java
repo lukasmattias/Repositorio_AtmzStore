@@ -235,6 +235,15 @@ public class Teste {
 				e.printStackTrace();
 			}
 		}
+		
+		if (pedidoCliente3 != null){
+			CartaoDeCredito pagClien3 = new CartaoDeCredito(2,"424214215", "234", cliente1.getNome(), LocalDate.of(2023, 12, 10), pedidoCliente3.getValorTotal());
+			try {
+				pagamentoController.realizarPagamento(pedidoCliente3, pagClien3);
+			} catch (FalhaPagamentoException e) {
+				e.getMessage();
+			}
+		}
 
 
 }

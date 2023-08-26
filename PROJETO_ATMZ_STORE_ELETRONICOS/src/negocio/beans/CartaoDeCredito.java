@@ -9,6 +9,7 @@ public class CartaoDeCredito extends Pagamento {
     private String CVV;
     private String nomeTitular;
     private LocalDate dataValidade;
+    
 
     public CartaoDeCredito(int parcelas, String numeroCartao, String CVV, String nomeTitular, LocalDate dataValidade, double valorASerPago) {
         super(valorASerPago);
@@ -21,8 +22,17 @@ public class CartaoDeCredito extends Pagamento {
 
     @Override
     public String toString() {
-        return "Cartao de Credito - Parcelas: " + parcelas + " - N�mero: " + numeroCartao;
+        String ultimosDigitos = numeroCartao.substring(numeroCartao.length() - 4);
+        String digitosOcultados = "**** **** ****" + ultimosDigitos;
+
+        return 
+                "    Numero do Cartao: '" + digitosOcultados + "'\n" +
+                "    Nome do Titular: '" + nomeTitular + "'\n" +
+                "    Parcelas: " + parcelas + "\n" +
+                "    Valor Pago: " + valorPago + "\n" +
+                "    Status: " + status.getDescricao();
     }
+
 
     public int getParcelas() {
         return parcelas;

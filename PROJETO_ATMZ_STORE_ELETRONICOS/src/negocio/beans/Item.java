@@ -41,4 +41,8 @@ public class Item implements Serializable {
 		this.quantidade = quantidade;
 	}
     
+	 public String toString() {
+	        return " " + produto + "\n" +
+	               " Quantidade:" + quantidade + "\n";
+	    }
 }

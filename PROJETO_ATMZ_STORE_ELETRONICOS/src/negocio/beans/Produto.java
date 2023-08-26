@@ -60,14 +60,12 @@ public class Produto implements Serializable {
     
     @Override
     public String toString() {
-        return "Produto{" +
-               "id=" + id +
-               ", nome='" + nome + '\'' +
-               ", descricao='" + descricao + '\'' +
-               ", preco=" + preco +
-               ", estoque=" + estoque +
-               ", categoria=" + categoria.getNome() +
-               '}';
+        return 
+               " ID do produto:" + id + "\n" +
+               " Nome do produto:'" + nome + "\n" +
+               " Descricao:'" + descricao + "\n" +
+               " Preco unitário:" + preco + "\n" +
+               " Categoria:" + categoria.getNome();
     }
 
      @Override

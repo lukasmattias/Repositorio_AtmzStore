@@ -3,12 +3,15 @@ package gui;
 import java.io.IOException;
 import java.util.List;
 
+import exception.AtributosNulosException;
+import exception.OperacaoInvalidaException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
@@ -20,6 +23,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import negocio.CarrinhoDeComprasController;
+import negocio.PedidoController;
 import negocio.ProdutoController;
 import negocio.beans.Cliente;
 import negocio.beans.Item;
@@ -47,7 +51,7 @@ public class CarrinhoController {
     @FXML
 	 private TableView<Item> tableView;
 	@FXML
-	private TableColumn<Item, Void> colRemover;
+	private TableColumn<Item, Void> colAcao;
 	@FXML
 	private TableColumn<Item, Produto> colProduto;
 	@FXML
@@ -56,16 +60,31 @@ public class CarrinhoController {
 	private Label carrinhoSubTotal;
 	
     @FXML
-    void IrParaTelaPagamento(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setTitle("ATMZ STORE PAGAMENTO");
-        stage.setScene(scene);
-        stage.show();
+    void IrParaTelaPagamento(ActionEvent event) throws IOException{  
+        try {
+    		Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
+    		/*PedidoController.getInstancia().criarPedido(c);*/
+    		Parent root = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setTitle("ATMZ STORE PAGAMENTO");
+            stage.setScene(scene);
+            stage.show();
+    	}
+    	catch (OperacaoInvalidaException e ) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Pedido não realizado");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+    	}
+        catch (AtributosNulosException a) {
+        	Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Pedido não realizado");
+            alert.setHeaderText(a.getMessage());
+            alert.showAndWait();
+        }
     }
-
-
+    
     @FXML
     void VoltarProdutos(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("Produtos.fxml"));
@@ -79,6 +98,7 @@ public class CarrinhoController {
 
     @FXML
     void IrHistoricoCompras (ActionEvent event) throws IOException{
+    	
         Parent root = FXMLLoader.load(getClass().getResource("ClienteHistoricoCompras.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -112,13 +132,30 @@ public class CarrinhoController {
                 }
             }
         });
-        colRemover.setCellFactory(column -> new TableCell<Item, Void>() {
+        colAcao.setCellFactory(column -> new TableCell<Item, Void>() {
+        	final Button button1 = new Button("+");
             Spinner<Integer> spinner = new Spinner<>(1, 500, 0);
+            
             final Button button = new Button("-");
             Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
-
+            
             {
-                spinner.valueProperty().addListener((observable, valorAnterior, novoValor) -> {
+               button1.setOnAction(event -> {
+            	Produto p = getTableView().getItems().get(getIndex()).getProduto();
+            	try {
+            	CarrinhoDeComprasController.getInstancia().adicionarProdutoNoCarrinho(c.getCarrinho(), p, spinner.getValue());
+            	}
+               	catch (OperacaoInvalidaException e) {
+               		Alert alert = new Alert(Alert.AlertType.ERROR);
+    	            alert.setTitle("Operação inválida");
+    	            alert.setHeaderText(e.getMessage());
+    	            alert.showAndWait();
+               	}
+                   
+                   tableView.refresh();
+               });  
+            	
+            	spinner.valueProperty().addListener((observable, valorAnterior, novoValor) -> {
                     if (!isEmpty()) {
                         Item itemProduto = getTableView().getItems().get(getIndex());
                         if (novoValor > itemProduto.getQuantidade()) {
@@ -144,8 +181,8 @@ public class CarrinhoController {
                 if (vazio) {
                     setGraphic(null);
                 } else {
-                    HBox spcombotao = new HBox(spinner, button);
-                    spcombotao.setSpacing(5);
+                    HBox spcombotao = new HBox(button1, spinner, button);
+                    spcombotao.setSpacing(3);
                     setGraphic(spcombotao);
                 }
             }

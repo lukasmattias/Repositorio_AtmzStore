@@ -17,9 +17,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -42,7 +44,7 @@ public class PagamentoController {
     //Atributos credito
 
     @FXML
-    private AnchorPane TelaCredito;
+    private GridPane TelaCredito;
 
     @FXML
     private TextField creditoCVV;
@@ -57,9 +59,10 @@ public class PagamentoController {
     private TextField creditoParcelas;
 
     @FXML
-    private TextField creditoValidade;
+    private DatePicker creditoValidade;
 
-
+    
+    
     //Atributos Pagamento
     private Stage stage;
     private Scene scene;
@@ -82,18 +85,18 @@ public class PagamentoController {
     @FXML
     private Button btnPix;
 
-
+    
     @FXML
-    void telaCredito(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Credito.fxml"));
-        AnchorPane a = loader.load();
-        PagamentoAnchorPane.getChildren().setAll(a);
+    void telaCredito(ActionEvent event) throws IOException{       
+        TelaCredito.setVisible(true);
+        TelaPIX.setVisible(false);
     }
 
     @FXML
     void telaPix(ActionEvent event) throws IOException {
-        AnchorPane a = FXMLLoader.load(getClass().getResource("PIX.fxml"));
-        PagamentoAnchorPane.getChildren().setAll(a);
+       
+        TelaCredito.setVisible(false);
+        TelaPIX.setVisible(true);
     }
 
     @FXML
@@ -105,29 +108,7 @@ public class PagamentoController {
         stage.setScene(scene);
         stage.show();
     }
-
-    public boolean realizarTransacao() {
-
-       try{
-           creditoValidade.setText("02 25");
-            negocio.PagamentoController pagamento = negocio.PagamentoController.getInstancia();
-
-            String validadeCartao = creditoValidade.getText();
-            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                    .appendPattern("MM/yyyy")
-                    .parseDefaulting(ChronoField.DAY_OF_MONTH, 1)
-                    .toFormatter();
-            LocalDate validade = LocalDate.parse(validadeCartao, formatter);
-
-            CartaoDeCredito cartao = new CartaoDeCredito(Integer.parseInt(creditoParcelas.getText()),
-                    creditoNumCartao.getText(), creditoCVV.getText(), creditoNomeTitular.getText(), validade,
-                    Float.parseFloat(PagamentoSubTotal.getText()));
-
-            return pagamento.verificarAtributosCartao(cartao);
-        } catch (RuntimeException runtimeException) {
-           return false;
-        }
-    }
+   
 
     @FXML
     public boolean codigoPix(){
@@ -146,8 +127,15 @@ public class PagamentoController {
 
    @FXML
     public void confirmarCompra(ActionEvent event) throws IOException {
+	   negocio.PagamentoController pagamento = negocio.PagamentoController.getInstancia();
+       LocalDate cartaoValidade = creditoValidade.getValue();
+       CartaoDeCredito cartao = new CartaoDeCredito(Integer.parseInt(creditoParcelas.getText()),
+               creditoNumCartao.getText(), creditoCVV.getText(), creditoNomeTitular.getText(), cartaoValidade,
+               Float.parseFloat(PagamentoSubTotal.getText()));
+       System.out.println(cartao);
+       
         boolean auxPix = codigoPix();
-        boolean auxCred = realizarTransacao();
+        boolean auxCred = pagamento.verificarAtributosCartao(cartao);
         //event.getSource().equals(btnConfirmarPedido);
 
         if (auxPix && !auxCred) {

@@ -19,7 +19,7 @@ public class Pedido implements Serializable{
         this.cliente = cliente;
         this.itens = itens;
         this.data = LocalDateTime.now(); // Data atual
-        this.statusDePagamento = Status.AGUARDANDO_PROCESSAMENTO; // Pedido inicialmente ativo
+        this.statusDePagamento = Status.AGUARDANDO_PAGAMENTO; // Pedido inicialmente ativo
         this.pagamento = null;
     }
 

@@ -45,7 +45,7 @@ public class AdmController {
 
     @FXML
     void IrAdmHistoricoVendas(ActionEvent event) throws IOException {
-        Pane a = FXMLLoader.load(getClass().getResource("AdmHistoricoVendas.fxml"));
+        Pane a = FXMLLoader.load(getClass().getResource("ClienteHistoricoCompras.fxml"));
         AnchorPaneADM.getChildren().setAll(a);
     }
 

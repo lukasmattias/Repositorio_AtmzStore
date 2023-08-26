@@ -48,11 +48,16 @@ public abstract class Usuario implements Serializable {
     	this.id = id;
     }
 
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", endereco="
-				+ endereco + "]";
-	}
+    @Override
+    public String toString() {
+        return 
+               "    Id: " + id + ",\n" +
+               "    Nome: '" + nome + "',\n" +
+               "    Email: '" + email + "',\n" +
+               "    Endereco: '" + endereco.toString() + "'\n";
+    }
+
+
     
 
 }

@@ -86,12 +86,7 @@ public class RepositorioPedidos implements IRepositorioPedidos, Serializable  {
     	
     @Override
     public void adicionarPedido(Pedido pedido) throws OperacaoInvalidaException{
-        boolean existe = false;
-        for (Pedido p : this.pedidos){
-            if (p.getId() == pedido.getId()){
-                existe = true;
-            }
-        }
+        boolean existe = verificarPedidoExistente(pedido);
         if (existe){
             throw new OperacaoInvalidaException("O ID do pedido já foi cadastrado.");
         }
@@ -136,7 +131,13 @@ public class RepositorioPedidos implements IRepositorioPedidos, Serializable  {
 
     @Override
     public List<Pedido> listarPedidosPorCliente(Cliente cliente) {
-        return cliente.getPedidos();
+    	List<Pedido> pedidos = new ArrayList<Pedido>();
+    	for (Pedido p : this.listarPedidos()) {
+    		if (p.getCliente().getId() == cliente.getId()) {
+    			pedidos.add(p);
+    		}
+    	}
+        return pedidos;
     }
 
     @Override
