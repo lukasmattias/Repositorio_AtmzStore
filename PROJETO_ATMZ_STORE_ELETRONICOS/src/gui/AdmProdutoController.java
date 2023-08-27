@@ -9,11 +9,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import negocio.ProdutoController;
+import negocio.beans.Produto;
 
 public class AdmProdutoController {
 	private Stage stage;
 	private Scene scene;
+	
+	 @FXML
+	 private TableView<Produto> TabelaProdutos;
+
+    @FXML
+    private TableColumn<Produto, Integer> AdmProdutosID;
+
+    @FXML
+    private TableColumn<Produto, String> AdmProdutosNome;
 
 	@FXML
     private Button btnVoltarLogin;
@@ -44,6 +59,13 @@ public class AdmProdutoController {
 
     @FXML
     private Label lblAdmProdutoPreco;
+    
+    public void initialize() {
+    	AdmProdutosID.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	AdmProdutosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+    	TabelaProdutos.getItems().addAll(ProdutoController.getInstancia().listarProdutos());
+    }
+    
 
     @FXML
     public void VoltarLogin(ActionEvent event) throws IOException{
