@@ -1,48 +1,88 @@
-package gui;
+<?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-import java.io.IOException;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
-public class AdmCategoriaController {
-	private Stage stage;
-	private Scene scene;
-	
-	@FXML
-    private Button btnVoltarLogin;
-
-    @FXML
-    private Button btnAdmCategoriaAdicionar;
-
-    @FXML
-    private Button btnAdmCategoriaAlterar;
-
-    @FXML
-    private Button btnAdmCategoriaRemover;
-
-    @FXML
-    private Label lblAdmCategoriaID;
-
-    @FXML
-    private Label lblAdmCategoriaNome;
-    
-    @FXML
-    public void VoltarLogin(ActionEvent event) throws IOException{
-    	Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-   	 	scene = new Scene(root);
-   	 	stage.setTitle("ATMZ STORE ");
-   	 	stage.setScene(scene);
-   	 	stage.show();
-    }
-    
-}
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdmCategoriaController">
+   <children>
+      <SplitPane dividerPositions="0.3277591973244147" prefHeight="427.0" prefWidth="700.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="157.0" prefWidth="335.0">
+               <children>
+                  <TableView prefHeight="425.0" prefWidth="226.0">
+                    <columns>
+                      <TableColumn fx:id="AdmCategoriaNome" prefWidth="75.0" text="Nome" />
+                      <TableColumn fx:id="AdmCategoriaID" prefWidth="75.0" text="ID" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="362.0" prefWidth="392.0">
+               <children>
+                  <Label layoutX="62.0" layoutY="14.0" text="Detalhes do Categorias" textFill="#8b3dff">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <GridPane fx:id="AdmCategoriaTabala" layoutX="53.0" layoutY="54.0" prefHeight="62.0" prefWidth="294.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="91.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="203.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nome" />
+                        <Label text="ID" GridPane.rowIndex="1" />
+                        <Label fx:id="lblAdmCategoriaNome" text="Label" GridPane.columnIndex="1" />
+                        <Label fx:id="lblAdmCategoriaID" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TableView layoutY="116.0" prefHeight="247.0" prefWidth="466.0">
+                    <columns>
+                      <TableColumn fx:id="AdmNomeCategoriaProduto" prefWidth="204.0" text="Nome" />
+                      <TableColumn fx:id="AdmIDCategoriaProdutos" prefWidth="261.0" text="ID" />
+                    </columns>
+                  </TableView>
+                  <ButtonBar layoutX="102.0" layoutY="371.0" prefHeight="40.0" prefWidth="200.0">
+                     <buttons>
+                        <Button fx:id="btnVoltarLogin" mnemonicParsing="false" onAction="#VoltarLogin" text="Voltar" />
+                        <Button fx:id="btnAdmCategoriaAdicionar" mnemonicParsing="false" text="Adicionar">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnAdmCategoriaAlterar" mnemonicParsing="false" text="Alterar">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnAdmCategoriaRemover" mnemonicParsing="false" text="Remover">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </buttons>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</Pane>
