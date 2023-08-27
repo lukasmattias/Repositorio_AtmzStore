@@ -71,10 +71,9 @@
                         <Label fx:id="lblAlmClienteEstado" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="187.0" layoutY="371.0" prefHeight="40.0" prefWidth="200.0">
+                  <ButtonBar layoutX="252.0" layoutY="371.0" prefHeight="40.0" prefWidth="200.0">
                      <buttons>
                         <Button fx:id="btnVoltarLogin" mnemonicParsing="false" onAction="#VoltarLogin" text="Voltar" />
-                        <Button fx:id="btnAdmClienteAlterar" mnemonicParsing="false" text="Alterar" />
                         <Button fx:id="btnAdmClienteRemover" mnemonicParsing="false" text="Remover" />
                      </buttons>
                   </ButtonBar>
