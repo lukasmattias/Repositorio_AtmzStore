@@ -20,7 +20,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="157.0" prefWidth="335.0">
                <children>
-                  <TableView prefHeight="427.0" prefWidth="232.0">
+                  <TableView fx:id="TabelaProdutos" prefHeight="427.0" prefWidth="232.0">
                     <columns>
                       <TableColumn fx:id="AdmProdutosNome" prefWidth="75.0" text="Nome" />
                       <TableColumn fx:id="AdmProdutosID" prefWidth="75.0" text="ID" />
