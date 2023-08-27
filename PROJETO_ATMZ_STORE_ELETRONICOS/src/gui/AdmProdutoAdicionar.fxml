@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -25,7 +29,6 @@
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -33,24 +36,39 @@
                </rowConstraints>
                <children>
                   <Label text="Nome" />
-                  <Label text="ID" GridPane.rowIndex="1" />
-                  <Label text="Preco" GridPane.rowIndex="2" />
-                  <Label text="Estoque" GridPane.rowIndex="3" />
-                  <Label text="Categoria" GridPane.rowIndex="4" />
-                  <Label text="Descricao" GridPane.rowIndex="5" />
-                  <Label fx:id="lblAdmProdutoEstoque" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Preco" GridPane.rowIndex="1" />
+                  <Label text="Estoque" GridPane.rowIndex="2" />
+                  <Label text="Categoria" GridPane.rowIndex="3" />
+                  <Label text="Descricao" GridPane.rowIndex="4" />
                   <TextField fx:id="ProdutoAdicionarNome" GridPane.columnIndex="1" />
-                  <TextField fx:id="ProdutoAdicionarID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="ProdutoAdicionarPreco" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField fx:id="ProdutoAdicionarEstoque" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="ProdutoAdicionarCategoria" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="ProdutoAdicionarDescricao" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="ProdutoAdicionarPreco" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="ProdutoAdicionarDescricao" prefHeight="61.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Spinner fx:id="ProdutoAdicionarEstoque" editable="true" prefHeight="25.0" prefWidth="284.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Spinner>
+                  <MenuButton fx:id="menuProdutoAdicionarCategoria" mnemonicParsing="false" prefHeight="25.0" prefWidth="297.0" text="Categoria" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <items>
+                        <MenuItem fx:id="ProdutoAdicionarEletrodomesticos" mnemonicParsing="false" onAction="#RetornarCategoriaEletrodomesticos" text="Eletrodomesticos" />
+                        <MenuItem fx:id="ProdutoAdicionarFotoVideo" mnemonicParsing="false" onAction="#RetornarCategoriaFotoVideo" text="Foto e Vídeo" />
+                        <MenuItem fx:id="ProdutoAdicionarComputadores" mnemonicParsing="false" onAction="#RetornarCategoriaComputadores" text="Computadores" />
+                      <MenuItem fx:id="ProdutoAdicionarGadgets" mnemonicParsing="false" onAction="#RetornarCategoriaGadgets" text="Gadgets" />
+                      <MenuItem fx:id="ProdutoAdicionarSmartphones" mnemonicParsing="false" onAction="#RetornarCategoriaSmartphones" text="Smartphones" />
+                    </items>
+                  </MenuButton>
                </children>
             </GridPane>
             <ButtonBar layoutX="280.0" layoutY="253.0" prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="btnProdutoAdicionarCancelar" mnemonicParsing="false" onAction="#FecharTelaProdutoAdicionar" text="Cancelar" />
-                  <Button fx:id="btnProdutoAdicionar" mnemonicParsing="false" onAction="#AdicionarProduto" text="Adicionar" />
+                <Button fx:id="btnProdutoAdicionarCancelar" mnemonicParsing="false" onAction="#FecharTelaProdutoAdicionar" text="Cancelar">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btnProdutoAdicionar" mnemonicParsing="false" onAction="#AdicionarProduto" text="Adicionar">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
               </buttons>
             </ButtonBar>
          </children>
