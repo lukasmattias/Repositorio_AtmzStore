@@ -1,6 +1,9 @@
 package gui;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.Objects;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,11 +25,11 @@ import negocio.beans.Cliente;
 import negocio.beans.Produto;
 
 public class AdmProdutoController {
-	private Stage stage;
-	private Scene scene;
-	
-	 @FXML
-	 private TableView<Produto> TabelaProdutos;
+    private Stage stage;
+    private Scene scene;
+
+    @FXML
+    private TableView<Produto> TabelaProdutos;
 
     @FXML
     private TableColumn<Produto, Integer> AdmProdutosID;
@@ -34,14 +37,11 @@ public class AdmProdutoController {
     @FXML
     private TableColumn<Produto, String> AdmProdutosNome;
 
-	@FXML
-    private Button btnVoltarLogin;
-	
     @FXML
-    private Button btnAdmProdutoAdicionar;
+    private Button btnVoltarLogin;
 
     @FXML
-    private Button btnAdmProdutoAlterar;
+    private Button btnAdmProdutoAdicionar;
 
     @FXML
     private Button btnAdmProdutoRemover;
@@ -63,77 +63,84 @@ public class AdmProdutoController {
 
     @FXML
     private Label lblAdmProdutoPreco;
-    
+
     public void initialize() {
-    	AdmProdutosID.setCellValueFactory(new PropertyValueFactory<>("id"));
-    	AdmProdutosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-    	TabelaProdutos.getItems().addAll(ProdutoController.getInstancia().listarProdutos());
-    	
-    	TabelaProdutos.setOnMouseClicked(event -> {
-			if (event.getClickCount() == 1) {
-				Produto ProdutoSelecionado = TabelaProdutos.getSelectionModel().getSelectedItem();
-				if (ProdutoSelecionado != null) {
-					lblAdmProdutoID.setText(String.valueOf(ProdutoSelecionado.getId()));
-					lblAdmProdutoNome.setText(ProdutoSelecionado.getNome());
-					lblAdmProdutoDescricao.setText(ProdutoSelecionado.getDescricao());
-					lblAdmProdutoPreco.setText(String.valueOf(ProdutoSelecionado.getPreco()));
-					lblAdmProdutoEstoque.setText(String.valueOf(ProdutoSelecionado.getEstoque()));
-					lblAdmProdutoCategoria.setText(ProdutoSelecionado.getCategoria().getNome());
-				}
-			}
-		});
+        AdmProdutosID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        AdmProdutosNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        TabelaProdutos.getItems().addAll(ProdutoController.getInstancia().listarProdutos());
+
+        TabelaProdutos.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 1) {
+                Produto produtoSelecionado = TabelaProdutos.getSelectionModel().getSelectedItem();
+                if (produtoSelecionado != null) {
+                    lblAdmProdutoID.setText(String.valueOf(produtoSelecionado.getId()));
+                    lblAdmProdutoNome.setText(produtoSelecionado.getNome());
+                    lblAdmProdutoDescricao.setText(produtoSelecionado.getDescricao());
+
+                    DecimalFormat decimalFormat = new DecimalFormat("#.00");
+                    String precoFormatado = decimalFormat.format(produtoSelecionado.getPreco());
+                    lblAdmProdutoPreco.setText(precoFormatado);
+
+                    lblAdmProdutoEstoque.setText(String.valueOf(produtoSelecionado.getEstoque()));
+
+                    if (produtoSelecionado.getCategoria() != null) {
+                        lblAdmProdutoCategoria.setText(produtoSelecionado.getCategoria().getNome());
+                    } else {
+                        lblAdmProdutoCategoria.setText("");
+                    }
+                } else {
+                    lblAdmProdutoID.setText("");
+                    lblAdmProdutoNome.setText("");
+                    lblAdmProdutoDescricao.setText("");
+                    lblAdmProdutoPreco.setText("");
+                    lblAdmProdutoEstoque.setText("");
+                    lblAdmProdutoCategoria.setText("");
+                }
+
+            }
+        });
     }
 
     @FXML
     public void VoltarLogin(ActionEvent event) throws IOException{
-    	Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-   	 	scene = new Scene(root);
-   	 	stage.setTitle("ATMZ STORE ");
-   	 	stage.setScene(scene);
-   	 	stage.show();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setTitle("ATMZ STORE ");
+        stage.setScene(scene);
+        stage.show();
     }
-    
+
 
     @FXML
     void AbrirTelaAdicionarProduto(ActionEvent event) throws IOException{
-    	 Parent root = FXMLLoader.load(getClass().getResource("AdmProdutoAdicionar.fxml"));
-    	 Stage newStage = new Stage();
-    	 Scene newScene = new Scene(root);
-    	 newStage.setTitle("ADICIONAR PRODUTO");
-    	 newStage.setScene(newScene);
-    	 newStage.showAndWait();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdmProdutoAdicionar.fxml")));
+        Stage newStage = new Stage();
+        Scene newScene = new Scene(root);
+        newStage.setTitle("ADICIONAR PRODUTO");
+        newStage.setScene(newScene);
+        newStage.showAndWait();
     }
 
     @FXML
     void removerProduto(ActionEvent event) {
-    	if(!lblAdmProdutoID.getText().isBlank()) {
-			 ProdutoController.getInstancia().removerProduto(ProdutoController.getInstancia().buscarProdutoPorId(Integer.parseInt(lblAdmProdutoID.getText())));
-			 if( ProdutoController.getInstancia().buscarProdutoPorId(Integer.parseInt(lblAdmProdutoID.getText())) == null) {
-				 Alert alert = new Alert(AlertType.CONFIRMATION);
-	             alert.setTitle("Remoção Produto");
-	             alert.setHeaderText("Produto removido com sucesso");
-	             alert.showAndWait();
-			 }
-			 else {
-				 Alert alert = new Alert(AlertType.CONFIRMATION);
-	             alert.setTitle("Remoção Produto");
-	             alert.setHeaderText("Falha na remoção do Produto!");
-	             alert.showAndWait();
-			 }
-		  }
+        if(!lblAdmProdutoID.getText().isBlank()) {
+            ProdutoController.getInstancia().removerProduto(ProdutoController.getInstancia().buscarProdutoPorId(Integer.parseInt(lblAdmProdutoID.getText())));
+            if( ProdutoController.getInstancia().buscarProdutoPorId(Integer.parseInt(lblAdmProdutoID.getText())) == null) {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Remoção Produto");
+                alert.setHeaderText("Produto removido com sucesso");
+                alert.showAndWait();
+            }
+            else {
+                Alert alert = new Alert(AlertType.CONFIRMATION);
+                alert.setTitle("Remoção Produto");
+                alert.setHeaderText("Falha na remoção do Produto!");
+                alert.showAndWait();
+            }
+        }
 
     }
-    
 
-    @FXML
-    void alterarInfoProduto(ActionEvent event) throws IOException{
-    	 Parent root = FXMLLoader.load(getClass().getResource("AdmProdutoAdicionar.fxml"));
-    	 Stage newStage = new Stage();
-    	 Scene newScene = new Scene(root);
-    	 newStage.setTitle("Alterar PRODUTO");
-    	 newStage.setScene(newScene);
-    	 newStage.showAndWait();
-    }
-    
+
 }
