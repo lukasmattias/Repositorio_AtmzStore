@@ -20,12 +20,12 @@
                     <menus>
                         <Menu mnemonicParsing="false" text="Clientes">
                             <items>
-                                <MenuItem fx:id="AdmClienteInfo" mnemonicParsing="false" onAction="#IrAdmCliente" text="Clientes Informacoes" />
+                                <MenuItem fx:id="AdmClienteInfo" mnemonicParsing="false" onAction="#IrAdmCliente" text="Clientes Informações" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Produtos">
                             <items>
-                                <MenuItem fx:id="AdmProdutoInfo" mnemonicParsing="false" onAction="#IrAdmProduto" text="Produtos Infornaçoes" />
+                                <MenuItem fx:id="AdmProdutoInfo" mnemonicParsing="false" onAction="#IrAdmProduto" text="Produtos Informações" />
                             </items>
                         </Menu>
                         <Menu fx:id="AdmCategoriaInfo" mnemonicParsing="false" text="Categorias">
@@ -33,11 +33,11 @@
                                 <MenuItem fx:id="Adm" mnemonicParsing="false" onAction="#IrAdmCategoria" text="Categorias informações" />
                             </items>
                         </Menu>
-                  <Menu mnemonicParsing="false" text="Histórico de Vendas">
-                    <items>
-                      <MenuItem fx:id="AdmHistoricoVendas" mnemonicParsing="false" onAction="#IrAdmHistoricoVendas" text="Mostrar Histórico" />
-                    </items>
-                  </Menu>
+                        <Menu mnemonicParsing="false" text="Histórico de Vendas">
+                            <items>
+                                <MenuItem fx:id="AdmHistoricoVendas" mnemonicParsing="false" onAction="#IrAdmHistoricoVendas" text="Mostrar Histórico" />
+                            </items>
+                        </Menu>
                     </menus>
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
