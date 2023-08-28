@@ -20,7 +20,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="157.0" prefWidth="335.0">
                <children>
-                  <TableView prefHeight="427.0" prefWidth="232.0">
+                  <TableView fx:id="TabelaProdutos" prefHeight="427.0" prefWidth="232.0">
                     <columns>
                       <TableColumn fx:id="AdmProdutosNome" prefWidth="75.0" text="Nome" />
                       <TableColumn fx:id="AdmProdutosID" prefWidth="75.0" text="ID" />
@@ -54,16 +54,16 @@
                      <children>
                         <Label text="Nome" />
                         <Label text="ID" GridPane.rowIndex="1" />
-                        <Label fx:id="lblAdmProdutoNome" text="Label" GridPane.columnIndex="1" />
-                        <Label fx:id="lblAdmProdutoID" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lblAdmProdutoNome" prefHeight="17.0" prefWidth="264.0" text=" " GridPane.columnIndex="1" />
+                        <Label fx:id="lblAdmProdutoID" prefHeight="17.0" prefWidth="276.0" text=" " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Preco" GridPane.rowIndex="2" />
                         <Label text="Estoque" GridPane.rowIndex="3" />
                         <Label text="Categoria" GridPane.rowIndex="4" />
                         <Label text="Descricao" GridPane.rowIndex="5" />
-                        <Label fx:id="lblAdmProdutoPreco" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="lblAdmProdutoEstoque" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label fx:id="lblAdmProdutoCategoria" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label fx:id="lblAdmProdutoDescricao" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="lblAdmProdutoPreco" prefHeight="17.0" prefWidth="271.0" text="                      " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="lblAdmProdutoEstoque" prefHeight="17.0" prefWidth="270.0" text="  " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="lblAdmProdutoCategoria" prefHeight="17.0" prefWidth="271.0" text=" " GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="lblAdmProdutoDescricao" prefHeight="17.0" prefWidth="273.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                   <ButtonBar layoutX="102.0" layoutY="363.0" prefHeight="40.0" prefWidth="200.0">
@@ -74,12 +74,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnAdmProdutoAlterar" mnemonicParsing="false" text="Alterar">
+                        <Button fx:id="btnAdmProdutoAlterar" mnemonicParsing="false" onAction="#alterarInfoProduto" text="Alterar">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnAdmProdutoRemover" mnemonicParsing="false" text="Remover">
+                        <Button fx:id="btnAdmProdutoRemover" mnemonicParsing="false" onAction="#removerProduto" text="Remover">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

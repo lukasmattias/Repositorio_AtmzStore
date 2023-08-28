@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProdutoAdicionarController">
+<StackPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProdutoAlterarController">
     <padding>
         <Insets bottom="0" left="0" right="0" top="0" />
     </padding>
@@ -40,15 +40,15 @@
                   <Label text="Estoque" GridPane.rowIndex="2" />
                   <Label text="Categoria" GridPane.rowIndex="3" />
                   <Label text="Descricao" GridPane.rowIndex="4" />
-                  <TextField fx:id="ProdutoAdicionarNome" GridPane.columnIndex="1" />
-                  <TextField fx:id="ProdutoAdicionarPreco" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="ProdutoAdicionarDescricao" prefHeight="61.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Spinner fx:id="ProdutoAdicionarEstoque" editable="true" prefHeight="25.0" prefWidth="284.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="ProdutoAlterarNome" GridPane.columnIndex="1" />
+                  <TextField fx:id="ProdutoAlterarPreco" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="ProdutoAlterarDescricao" prefHeight="56.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Spinner fx:id="ProdutoAlterarEstoque" editable="true" prefHeight="25.0" prefWidth="284.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Spinner>
-                  <MenuButton fx:id="menuProdutoAdicionarCategoria" mnemonicParsing="false" prefHeight="25.0" prefWidth="297.0" text="Categoria" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <MenuButton fx:id="ProdutoAlterarCategoria" mnemonicParsing="false" prefHeight="25.0" prefWidth="297.0" text="Categoria" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <items>
                         <MenuItem fx:id="ProdutoAdicionarEletrodomesticos" mnemonicParsing="false" onAction="#RetornarCategoriaEletrodomesticos" text="Eletrodomesticos" />
                         <MenuItem fx:id="ProdutoAdicionarFotoVideo" mnemonicParsing="false" onAction="#RetornarCategoriaFotoVideo" text="Foto e Vídeo" />
@@ -61,11 +61,7 @@
             </GridPane>
             <ButtonBar layoutX="280.0" layoutY="253.0" prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="btnProdutoAdicionarCancelar" mnemonicParsing="false" onAction="#FecharTelaProdutoAdicionar" text="Cancelar">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button fx:id="btnProdutoAdicionar" mnemonicParsing="false" onAction="#AdicionarProduto" text="Adicionar">
+                  <Button fx:id="btnProdutoAdicionar" mnemonicParsing="false" onAction="#alterarProduto" text="Alterar">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
