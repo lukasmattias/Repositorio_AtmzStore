@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdmController">
+    <padding>
+        <Insets bottom="0" left="0" right="0" top="0" />
+    </padding>
+    <children>
+        <VBox prefHeight="450.0" prefWidth="700.0">
+            <children>
+                <MenuBar prefHeight="36.0" prefWidth="600.0" VBox.vgrow="NEVER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Clientes">
+                            <items>
+                                <MenuItem fx:id="AdmClienteInfo" mnemonicParsing="false" onAction="#IrAdmCliente" text="Clientes Informacoes" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Produtos">
+                            <items>
+                                <MenuItem fx:id="AdmProdutoInfo" mnemonicParsing="false" onAction="#IrAdmProduto" text="Produtos Infornaçoes" />
+                            </items>
+                        </Menu>
+                        <Menu fx:id="AdmCategoriaInfo" mnemonicParsing="false" text="Categorias">
+                            <items>
+                                <MenuItem fx:id="Adm" mnemonicParsing="false" onAction="#IrAdmCategoria" text="Categorias informações" />
+                            </items>
+                        </Menu>
+                  <Menu mnemonicParsing="false" text="Histórico de Vendas">
+                    <items>
+                      <MenuItem fx:id="AdmHistoricoVendas" mnemonicParsing="false" onAction="#IrAdmHistoricoVendas" text="Mostrar Histórico" />
+                    </items>
+                  </Menu>
+                    </menus>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </MenuBar>
+                <AnchorPane fx:id="AnchorPaneADM" prefHeight="427.0" prefWidth="700.0" />
+            </children>
+        </VBox>
+    </children>
+</StackPane>
