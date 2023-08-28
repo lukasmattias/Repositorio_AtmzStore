@@ -100,10 +100,9 @@ public class ClienteComprasController {
     @FXML
     void initialize() {
     	totalPedido.setText("R$ 0.00");
-    	Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
-    	PedidoController.getInstancia().cancelarPedidosNaoPagosDoCliente(c);
     	
     	if (SessionController.getInstance().getUsuarioLogado() instanceof Cliente) {
+        	Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
     	    List<Pedido> pedidosDoCliente = PedidoController.getInstancia().listarPedidosPorCliente(c);
     	    tableViewPedidos.getItems().addAll(pedidosDoCliente);
     	    colPedidoCliente.setVisible(false);
