@@ -25,6 +25,7 @@ import negocio.beans.Item;
 import negocio.beans.PagamentoPix;
 import negocio.beans.Pedido;
 import negocio.beans.Produto;
+import negocio.beans.Status;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -48,6 +49,8 @@ public class ClienteComprasController {
     private TableColumn<Pedido, LocalDateTime> colPedidoDataHora;
     @FXML
     private TableColumn<Pedido, Cliente> colPedidoCliente;
+    @FXML
+    private TableColumn<Pedido, Status> colPedidoStatus;
     @FXML
     private Label totalPedido;
     @FXML
@@ -97,9 +100,10 @@ public class ClienteComprasController {
     @FXML
     void initialize() {
     	totalPedido.setText("R$ 0.00");
-    	tabPane.setTabDragPolicy(TabPane.TabDragPolicy.FIXED);
+    	Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
+    	PedidoController.getInstancia().cancelarPedidosNaoPagosDoCliente(c);
+    	
     	if (SessionController.getInstance().getUsuarioLogado() instanceof Cliente) {
-    	    Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
     	    List<Pedido> pedidosDoCliente = PedidoController.getInstancia().listarPedidosPorCliente(c);
     	    tableViewPedidos.getItems().addAll(pedidosDoCliente);
     	    colPedidoCliente.setVisible(false);
@@ -108,6 +112,20 @@ public class ClienteComprasController {
     	}
         colPedidoID.setCellValueFactory(new PropertyValueFactory<>("id"));
         colPedidoDataHora.setCellValueFactory(new PropertyValueFactory<>("data"));
+        colPedidoStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colPedidoStatus.setCellFactory(column -> new TableCell<Pedido, Status>() {
+            @Override
+            protected void updateItem(Status statusDePagamento, boolean empty) {
+                super.updateItem(statusDePagamento, empty);
+                
+                if (statusDePagamento == null || empty) {
+                    setText(null);
+                } else {
+                    setText(statusDePagamento.getDescricao());
+                }
+            }
+        });
+        
         colPedidoCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
         colPedidoCliente.setCellFactory(column -> new TableCell<Pedido, Cliente>() {
             @Override
@@ -134,7 +152,7 @@ public class ClienteComprasController {
                 	exibirDetalhesItens(pedidoSelecionado);
                     exibirDetalhesPagamento(pedidoSelecionado);
                     exibirDetalhesEntrega(pedidoSelecionado);
-                    totalPedido.setText("R$" + pedidoSelecionado.getValorTotal());
+                    totalPedido.setText("R$" + pedidoSelecionado.getValorItens());
                 }
             }
         });
@@ -150,7 +168,7 @@ public class ClienteComprasController {
     }
     
     private void exibirDetalhesPagamento(Pedido pedido) {
-    	String formaDePagamento = "null";
+    	String formaDePagamento = "Pedido cancelado.";
         if (pedido.getPagamento() instanceof CartaoDeCredito) {
             formaDePagamento = "Cartão de Crédito";
         } else if (pedido.getPagamento() instanceof PagamentoPix) {
@@ -158,7 +176,14 @@ public class ClienteComprasController {
         }
         pagamentoColumn.setText(formaDePagamento);
     	tableViewPagamento.getItems().clear();
-        pagamentoColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPagamento().toString()));
+    	
+    	if (pedido.getPagamento() != null) {
+    	pagamentoColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPagamento().toString()));
+    	}
+    	else {
+   		 pagamentoColumn.setCellValueFactory(cellData -> new SimpleStringProperty("Pagamento não realizado."));
+	
+    	}
         tableViewPagamento.getItems().add(pedido);
         detPagamento.setContent(tableViewPagamento);
     }

@@ -80,9 +80,9 @@ public class Teste {
 		usuarioController.cadastrarUsuario(admin6);
 		
 		//Instanciando 3 produtos válidos
-        Produto laptop1 = new Produto("Laptop Ideapad", "Laptop de alto desempenho", 2499.99, 20);
-		Produto eletrodomestico1 = new Produto("Geladeira Frost Free", "Geladeira espaçosa", 1799.99, 30);
-		Produto smartphone1 = new Produto("Smartphone Modelo X", "Descrição do Smartphone", 999.99, 50);
+        Produto laptop1 = new Produto("Laptop Ideapad", "Laptop de alto desempenho", 2499.99, 20, null);
+		Produto eletrodomestico1 = new Produto("Geladeira Frost Free", "Geladeira espaçosa", 1799.99, 30, null);
+		Produto smartphone1 = new Produto("Smartphone Modelo X", "Descrição do Smartphone", 999.99, 50, null);
 		
 
 		// Cadastrar produto válidos
@@ -91,23 +91,23 @@ public class Teste {
 		produtoController.cadastrarProduto(smartphone1);
 		
 	    
-	    Produto gadget1 = new Produto("Fones de Ouvido Bluetooth", "Fones sem fio de alta qualidade", 149.99, 100);
-	    Produto tv1 = new Produto("Smart TV 4K", "TV de alta definição", 1999.99, 40);
-	    Produto computador1 = new Produto("PC Gamer", "Computador para jogos", 3499.99, 15);
-	    Produto eletrodomestico2 = new Produto("Liquidificador", "Liquidificador potente", 89.99, 80);
-	    Produto smartphone2 = new Produto("Smartphone Modelo Y", "Outro modelo de smartphone", 799.99, 70);
+	    Produto gadget1 = new Produto("Fones de Ouvido Bluetooth", "Fones sem fio de alta qualidade", 149.99, 100, null);
+	    Produto tv1 = new Produto("Smart TV 4K", "TV de alta definição", 1999.99, 40, null);
+	    Produto computador1 = new Produto("PC Gamer", "Computador para jogos", 3499.99, 15, null);
+	    Produto eletrodomestico2 = new Produto("Liquidificador", "Liquidificador potente", 89.99, 80, null);
+	    Produto smartphone2 = new Produto("Smartphone Modelo Y", "Outro modelo de smartphone", 799.99, 70, null);
 	    
-	    Produto gadget2 = new Produto("Relógio Inteligente", "Relógio com funções smart", 199.99, 60);
-	    Produto tv2 = new Produto("Soundbar", "Barra de som para TVs", 299.99, 25);
-	    Produto computador2 = new Produto("Notebook UltraSlim", "Notebook leve e portátil", 1599.99, 35);
-	    Produto eletrodomestico3 = new Produto("Aspirador de Pó", "Aspirador com alto poder de sucção", 129.99, 50);
-	    Produto smartphone3 = new Produto("Smartphone Modelo Z", "Mais um modelo de smartphone", 1099.99, 60);
+	    Produto gadget2 = new Produto("Relógio Inteligente", "Relógio com funções smart", 199.99, 60, null);
+	    Produto tv2 = new Produto("Soundbar", "Barra de som para TVs", 299.99, 25, null);
+	    Produto computador2 = new Produto("Notebook UltraSlim", "Notebook leve e portátil", 1599.99, 35, null);
+	    Produto eletrodomestico3 = new Produto("Aspirador de Pó", "Aspirador com alto poder de sucção", 129.99, 50, null);
+	    Produto smartphone3 = new Produto("Smartphone Modelo Z", "Mais um modelo de smartphone", 1099.99, 60, null);
 	    
-	    Produto gadget3 = new Produto("Câmera de Ação", "Câmera para esportes e aventuras", 179.99, 45);
-	    Produto tv3 = new Produto("Projetor Full HD", "Projetor para home theater", 899.99, 20);
-	    Produto computador3 = new Produto("PC de Uso Geral", "Computador para tarefas cotidianas", 999.99, 30);
-	    Produto eletrodomestico4 = new Produto("Micro-ondas", "Micro-ondas com várias funções", 149.99, 70);
-	    Produto smartphone4 = new Produto("Smartphone Modelo A", "Um modelo mais antigo", 499.99, 90);
+	    Produto gadget3 = new Produto("Câmera de Ação", "Câmera para esportes e aventuras", 179.99, 45, null);
+	    Produto tv3 = new Produto("Projetor Full HD", "Projetor para home theater", 899.99, 20, null);
+	    Produto computador3 = new Produto("PC de Uso Geral", "Computador para tarefas cotidianas", 999.99, 30, null);
+	    Produto eletrodomestico4 = new Produto("Micro-ondas", "Micro-ondas com várias funções", 149.99, 70, null);
+	    Produto smartphone4 = new Produto("Smartphone Modelo A", "Um modelo mais antigo", 499.99, 90, null);
 
 	    // Cadastrar produtos válidos
 	    produtoController.cadastrarProduto(laptop1);

@@ -48,14 +48,24 @@ public class Pedido implements Serializable{
     public Status getStatus() {
         return statusDePagamento;
     }
+    
+    public void setValorTotal(double novoValor) {
+    	this.valorTotal = novoValor;
+    }
 
-    public double getValorTotal() {
-        double valorTotal = 0.0; 
+    public double getValorItens() {
+        double valorItens = 0.0; 
         for (Item item : itens) {
-            valorTotal += item.getProduto().getPreco() * item.getQuantidade();
+        	valorItens += item.getProduto().getPreco() * item.getQuantidade();
         }  
+        return valorItens;
+    }
+    
+    public double getValorTotal() {
         return valorTotal;
     }
+    
+    
 
     public Cliente getCliente() {
         return cliente;
@@ -74,7 +84,6 @@ public class Pedido implements Serializable{
 	               ", valorTotal=" + valorTotal +
 	               ", cliente=" + cliente +
 	               ", itens=" + itens +
-	               ", pagamento=" + pagamento.toString() +
 	               '}';
 	    }
 

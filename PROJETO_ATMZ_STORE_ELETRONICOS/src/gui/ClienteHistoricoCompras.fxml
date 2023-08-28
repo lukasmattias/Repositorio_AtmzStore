@@ -13,15 +13,16 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ClienteComprasController">
     <children>
-        <SplitPane dividerPositions="0.4" prefHeight="450.0" prefWidth="700.0">
+        <SplitPane dividerPositions="0.5343839541547278" prefHeight="450.0" prefWidth="700.0">
             <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="157.0" prefWidth="335.0">
                     <children>
                         <TableView fx:id="tableViewPedidos" prefHeight="450.0" prefWidth="330.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                             <columns>
-                          <TableColumn fx:id="colPedidoCliente" prefWidth="105.0" text="Cliente" />
-                            <TableColumn fx:id="colPedidoID" prefWidth="78.0" text="Pedido ID" />
-                        <TableColumn fx:id="colPedidoDataHora" prefWidth="99.0" text="Data/Hora" />
+                          <TableColumn fx:id="colPedidoCliente" prefWidth="150.0" text="Cliente" />
+                            <TableColumn fx:id="colPedidoID" prefWidth="48.0" text="Pedido ID" />
+                        <TableColumn fx:id="colPedidoDataHora" prefWidth="131.0" text="Data/Hora" />
+                         <TableColumn fx:id="colPedidoStatus" prefWidth="131.0" text="Status" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -31,6 +32,51 @@
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="321.0">
                     <children>
+                  <TabPane fx:id="tabPane" layoutX="-1.0" layoutY="63.0" prefHeight="328.0" prefWidth="322.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="63.0">
+                   <style>
+        -fx-font-size:14px;
+        -fx-font-family:"System Bold";
+    </style>
+<tabs>
+  <Tab fx:id="detItens" text="Itens">
+    <content>
+        <TableView fx:id="tableViewItens">
+            <columns>
+                <TableColumn fx:id="itemColumn" prefWidth="94.0" text="Itens" />
+                <TableColumn fx:id="subTotalColumn" minWidth="6.0" prefWidth="66.0" text="Subtotal" />
+            </columns>
+    		<columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+             </columnResizePolicy>
+        </TableView>
+    </content>
+</Tab>
+   <Tab fx:id="detPagamento" text="Detalhes de Pagamento">
+    <content>
+        <TableView fx:id="tableViewPagamento">
+            <columns>
+                <TableColumn fx:id="pagamentoColumn" text="Forma de Pagamento" />
+            </columns>
+             <columnResizePolicy>
+              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+           </columnResizePolicy>
+        </TableView>
+    </content>
+</Tab>
+   <Tab fx:id="detEntrega" text="Detalhes de Entrega">
+    <content>
+        <TableView fx:id="tableViewEntrega">
+            <columns>
+                <TableColumn fx:id="destinatarioColumn" text="Destinatário" />
+            </columns>
+               <columnResizePolicy>
+                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+      				  </TableView>
+   					 </content>
+					</Tab>
+  			  </tabs>
+                  </TabPane>
                         <Label layoutX="94.0" layoutY="14.0" text="Detalhes do Pedido" textFill="#8b3dff">
                             <font>
                                 <Font name="System Bold" size="20.0" />
@@ -43,51 +89,6 @@
                   </Label>
                   <Label fx:id="totalPedido" layoutX="55.0" layoutY="391.0" prefHeight="17.0" prefWidth="89.0" text="R$ 0.00" />
                           <Button fx:id="btnVoltarCarrinho" layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#VoltarCarrinho" text="Voltar" AnchorPane.topAnchor="17.0" />
-                  <TabPane fx:id="tabPane" layoutX="-1.0" layoutY="63.0" prefHeight="328.0" prefWidth="322.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="63.0">
-                   <style>
-        -fx-font-size:14px;
-        -fx-font-family:"System Bold";
-    </style>
-                    <tabs>
-                      <Tab fx:id="detItens" text="Itens">
-    <content>
-        <TableView fx:id="tableViewItens">
-            <columns>
-                <TableColumn fx:id="itemColumn" prefWidth="94.0" text="Itens" />
-                <TableColumn fx:id="subTotalColumn" minWidth="6.0" prefWidth="66.0" text="Subtotal" />
-            </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-        </TableView>
-    </content>
-</Tab>
-                          <Tab fx:id="detPagamento" text="Detalhes de Pagamento">
-    <content>
-        <TableView fx:id="tableViewPagamento">
-            <columns>
-                <TableColumn fx:id="pagamentoColumn" text="Forma de Pagamento" />
-            </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-        </TableView>
-    </content>
-</Tab>
-                         <Tab fx:id="detEntrega" text="Detalhes de Entrega">
-    <content>
-        <TableView fx:id="tableViewEntrega">
-            <columns>
-                <TableColumn fx:id="destinatarioColumn" text="Destinatário" />
-            </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-        </TableView>
-    </content>
-</Tab>
-                    </tabs>
-                  </TabPane>
                     </children>
                 </AnchorPane>
             </items>

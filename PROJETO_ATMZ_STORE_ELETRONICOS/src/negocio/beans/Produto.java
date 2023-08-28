@@ -13,7 +13,7 @@ public class Produto implements Serializable {
     private int estoque;
     private Categoria categoria;
 
-    public Produto(String nome, String descricao, double preco, int estoque) {
+    public Produto(String nome, String descricao, double preco, int estoque, Categoria categoria2) {
         this.id = 0;
         this.nome = nome;
         this.descricao = descricao;

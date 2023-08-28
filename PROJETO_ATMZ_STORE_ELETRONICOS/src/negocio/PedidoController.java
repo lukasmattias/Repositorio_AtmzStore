@@ -36,9 +36,12 @@ public class PedidoController {
 
      public Pedido criarPedido(Cliente cliente) throws AtributosNulosException {
     	// verificando se o cliente é nulo ou se o seu carrinho está vazio
-        if (cliente == null || cliente.getCarrinho().getItens().isEmpty() || cliente.getId() == 0) {
+        if (cliente == null || cliente.getId() == 0) {
         throw new AtributosNulosException("Os dados do cliente não podem ser nulos ou vazios.");
         } 
+        else if (cliente.getCarrinho().getItens().isEmpty()) {
+        	throw new AtributosNulosException("O carrinho não pode estar vazio.");
+        }
     	ArrayList<Item> ItensPedido = new ArrayList<>();
         ItensPedido.addAll(cliente.getCarrinho().getItens());
     	// criando um novo pedido com base nos ítens do carrinho
@@ -58,6 +61,11 @@ public class PedidoController {
             total += item.getSubtotal();
         }
         return total;
+    }
+    
+    public Pedido retornarUltimoPedido (Cliente cliente) {
+    	int indexUltimoPedido = cliente.getPedidos().size() - 1;
+    	return cliente.getPedidos().get(cliente.getPedidos().size() - 1);
     }
     
     // Listar todos os pedidos de um cliente
@@ -91,8 +99,17 @@ public class PedidoController {
         for (Item p : pedido.getItens()){
             repositorioProdutos.aumentarEstoque(p.getProduto(), p.getQuantidade());
             } 
-            pedido.setStatusDePagamento(Status.CANCELADO);  
+            pedido.setStatusDePagamento(Status.CANCELADO); 
+            repositorioProdutos.salvarArquivo();
         }
-
+    
+    public void cancelarPedidosNaoPagosDoCliente(Cliente cliente) {
+    	for (Pedido p: cliente.getPedidos()) {
+    		if (p.getPagamento() == null) {
+    			p.setStatusDePagamento(Status.CANCELADO);
+    		}
+    	}
+    }
+    
     }
 

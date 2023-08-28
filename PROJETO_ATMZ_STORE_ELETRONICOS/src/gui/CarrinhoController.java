@@ -63,12 +63,14 @@ public class CarrinhoController {
     void IrParaTelaPagamento(ActionEvent event) throws IOException{  
         try {
     		Cliente c = (Cliente) SessionController.getInstance().getUsuarioLogado();
-    		/*PedidoController.getInstancia().criarPedido(c);*/
+    		PedidoController.getInstancia().criarPedido(c);
+    		c.getCarrinho().getItens().clear();
     		Parent root = FXMLLoader.load(getClass().getResource("Pagamento.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setTitle("ATMZ STORE PAGAMENTO");
             stage.setScene(scene);
+            
             stage.show();
     	}
     	catch (OperacaoInvalidaException e ) {

@@ -39,7 +39,7 @@ public class PagamentoController {
             pagamento.setStatus(Status.PAGO);
             repositorioPedidos.salvarArquivo();
     }
-
+    
     private boolean validarPagamento(Pedido pedido, Pagamento pagamento) {
         return pedido != null &&
                pedido.getPagamento() == null &&
@@ -63,6 +63,7 @@ public class PagamentoController {
     public boolean verificarAtributosCartao(CartaoDeCredito pagamentoCartao) {
         return pagamentoCartao.getParcelas() > 0 && pagamentoCartao.getParcelas() <= 12 &&
                pagamentoCartao.getNumeroCartao() != null && !pagamentoCartao.getNumeroCartao().isEmpty() &&
+               pagamentoCartao.getNumeroCartao().length() == 16 &&
                pagamentoCartao.getCVV() != null && !pagamentoCartao.getCVV().isEmpty() &&
                pagamentoCartao.getNomeTitular() != null && !pagamentoCartao.getNomeTitular().isEmpty() &&
                pagamentoCartao.getDataValidade() != null && pagamentoCartao.getDataValidade().isAfter(LocalDate.now());
